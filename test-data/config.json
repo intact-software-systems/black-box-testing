@@ -1,0 +1,66 @@
+{
+  "outputFile": "scenario.json",
+  "headerTemplateFile": {
+    "HTTP": "./templates/http-header-template.json"
+  },
+  "replace": {
+    "url": "http://localhost:8080",
+    "company": "Intact"
+  },
+  "generateForEach": [
+    "amount"
+  ],
+  "numOfScenarios": "2",
+  "interactions": [
+    {
+      "templateFile": "./templates/create-resource-template.json",
+      "numOfInteractions": "10",
+      "technology": "HTTP",
+      "replace": {
+        "branchCondition": "Blossom",
+        "branch": "Fornebu"
+      },
+      "interactionReplaceRules": {
+        "1": {
+          "replace": {
+            "amount": "1000"
+          },
+          "generateForEach": [],
+          "generateAlways": [],
+          "replaceTypesForEach": [],
+          "generateTypesForEach": []
+        },
+        "2": {
+          "replace": {
+            "amount": "1002"
+          }
+        },
+        "3-5": {
+          "replace": {
+            "amount": "1003"
+          }
+        },
+        ">5": {
+          "replace": {
+            "amount": "1001"
+          }
+        }
+      },
+      "generateAlways": [
+        "uuid"
+      ]
+    },
+    {
+      "templateFile": "./templates/create-another-resource-template.json",
+      "technology": "HTTP",
+      "replace": {
+        "twigs": "humpty"
+      },
+      "generateForEach": [
+        "uuid",
+        "date",
+        "amount"
+      ]
+    }
+  ]
+}
