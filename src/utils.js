@@ -1,4 +1,3 @@
-import { v4 } from "https://deno.land/std@0.156.0/uuid/mod.ts";
 import {readFileSync, writeFile} from "https://deno.land/std@0.156.0/node/fs.ts";
 
 function randomIban(countryCode, technicalOrgNum) {
@@ -10,7 +9,7 @@ function randomInteger(min, max) {
 }
 
 function uuid() {
-    return v4()
+    return crypto.randomUUID()
 }
 
 function generateReplace(generate, config) {

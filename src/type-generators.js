@@ -1,5 +1,3 @@
-import { v4 } from "https://deno.land/std@0.156.0/uuid/mod.ts"
-
 function toRandomInteger(min, max) {
     return Number.parseInt(
         Math.floor(Math.random() * (max - min)) + min
@@ -143,7 +141,7 @@ function toRandomDates(min, max, numberOf) {
 function toUuids(numberOf) {
     return new Array(numberOf)
         .fill(0)
-        .map(() => v4())
+        .map(() => crypto.randomUUID())
 }
 
 function toRandomTechnicalOrgNum() {

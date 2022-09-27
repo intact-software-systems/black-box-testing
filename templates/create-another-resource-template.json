@@ -1,0 +1,21 @@
+{
+  "HTTP": {
+    "request": {
+      "path": "{url}/api/v1/resource/{twigs}/{uuid}",
+      "method": "POST",
+      "body": {
+        "valueDate": "{date}",
+        "money": "{amount}"
+      }
+    },
+    "response": {
+      "body": {
+        "twigs": ["a", "b"],
+        "resources": {
+          "id": "{uuid}"
+        }
+      },
+      "statusCode": "200"
+    }
+  }
+}

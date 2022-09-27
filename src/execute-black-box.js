@@ -44,7 +44,9 @@ function toStatus(result, actualJson, res, interaction, testResult) {
     }
 }
 
-function executeInteraction(index, interaction) {
+function executeInteraction(index, interactionWithConfig) {
+    const interaction = toNetworkInteraction(interactionWithConfig)
+
     if (!interaction) {
         return Promise.resolve()
     }
@@ -90,14 +92,22 @@ function executeInteraction(index, interaction) {
         })
         .catch(e => {
             return {
-                [index]: e
+                [index]: {
+                    exception: e?.message,
+                    config: interactionWithConfig
+                }
             }
         })
 }
 
 function toInteraction(interactions, index) {
-    return interactions[index]?.HTTP || interactions[index]?.MQ
+    return interactions[index] || interactions[index]
 }
+
+function toNetworkInteraction(interaction) {
+    return interaction?.HTTP || interaction?.MQ
+}
+
 
 export function executeBlackBox(interactions, index) {
     const executeNext = data => {
@@ -118,3 +128,4 @@ export function executeBlackBox(interactions, index) {
         .then(data => executeNext(data))
         .catch(e => executeNext(e))
 }
+

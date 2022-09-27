@@ -200,7 +200,7 @@ function toInjectGeneratedValues(replace, generateConstants, i) {
         })
 }
 
-function toInteractions(input, numOfInteractions) {
+function toInteractions(input, numOfInteractions = 1) {
     const interactions = []
 
     for (let i = 1; i < numOfInteractions + 1; i++) {
@@ -234,7 +234,9 @@ function toInteractions(input, numOfInteractions) {
         interactions.push(toInteraction(input))
     }
 
-    return interactions
+    return {
+        [input.interactionName]: interactions
+    }
 }
 
 function toHeaders(headerFile, headers, defaultHeaders) {
@@ -291,8 +293,8 @@ function toGenerateAlways(inputGenerateAlways, interactionGenerateAlways) {
 function toScenario(input, globalReplace, replaceRule = {}) {
     replaceRule.generateConstants = toGenerateConstants(replaceRule.generateConstants || [])
 
-    return input.interactions
-        .map(interaction => {
+    return Object.entries(input.interactions)
+        .map(([interactionName, interaction]) => {
             const interactionTemplate = toInteractionTemplate(interaction)
 
             if (interactionTemplate === undefined || interactionTemplate.request === undefined) {
@@ -302,6 +304,7 @@ function toScenario(input, globalReplace, replaceRule = {}) {
 
             return toInteractions(
                 {
+                    interactionName: interactionName,
                     replace: {
                         ...globalReplace,
                         ...interaction?.replace
@@ -323,7 +326,7 @@ function toScenario(input, globalReplace, replaceRule = {}) {
                         ...toResponse(interactionTemplate.response)
                     }
                 },
-                interaction.numOfInteractions || 1
+                interaction.numOfInteractions ? Number.parseInt(interaction.numOfInteractions) : 1
             )
         })
 }
@@ -344,24 +347,62 @@ function toGenerateConstants(generateConstants) {
         })
 }
 
-export default {
-    createScenarios: (input, numOfScenarios = 1) => {
-        if (!input?.interactions?.length) {
-            return []
-        }
-
-        const scenarios = []
-        for (let i = 0; i < numOfScenarios; i++) {
-            scenarios.push(
-                toScenario(
-                    input,
-                    utils.toReplace(input.generateForEach, input.replace),
-                    findReplaceRule(input.replaceRules, i + 1, numOfScenarios)
-                )
+function createScenariosFromInput(input, numOfScenarios = 1) {
+    const scenarios = []
+    for (let i = 0; i < numOfScenarios; i++) {
+        scenarios.push(
+            toScenario(
+                input,
+                utils.toReplace(input.generateForEach, input.replace),
+                findReplaceRule(input.replaceRules, i + 1, numOfScenarios)
             )
-        }
+        )
+    }
 
-        return utils.flattenInputArray(scenarios)
-    },
-    createScenario: (input, globalReplace = {}) => toScenario(input, globalReplace)
+    return scenarios
+}
+
+function toInteractionsWithConfig(input, scenarios) {
+    return scenarios
+        .map(scenario => {
+            if (scenario.length <= 0) {
+                return {}
+            }
+
+            return scenario
+                .map(interactionArray => {
+                    return {
+                        interactionArray: interactionArray
+                    }
+                })
+        })
+        .map(allInteractionsWithConfig => {
+            return allInteractionsWithConfig
+                .map(interactionsWithConfig => {
+                        return Object.entries(interactionsWithConfig.interactionArray)
+                            .map(([key, interactions]) => {
+                                    return interactions
+                                        .map(interaction => {
+                                            return {
+                                                ...interaction,
+                                                [key]: input.interactions[key]
+                                            }
+                                        })
+                                }
+                            )
+                    }
+                )
+                .flatMap(a => a)
+        })
+        .flatMap(a => a)
+        .flatMap(a => a)
+}
+
+export function createScenarios(input) {
+    const scenarioJson = createScenariosFromInput(
+        input,
+        input.numOfScenarios ? Number.parseInt(input.numOfScenarios) : 1
+    )
+
+    return toInteractionsWithConfig(input, scenarioJson)
 }

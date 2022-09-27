@@ -11,8 +11,8 @@
     "amount"
   ],
   "numOfScenarios": "2",
-  "interactions": [
-    {
+  "interactions": {
+    "createResource": {
       "templateFile": "./templates/create-resource-template.json",
       "numOfInteractions": "10",
       "technology": "HTTP",
@@ -50,7 +50,7 @@
         "uuid"
       ]
     },
-    {
+    "createAnotherResource": {
       "templateFile": "./templates/create-another-resource-template.json",
       "technology": "HTTP",
       "replace": {
@@ -62,5 +62,5 @@
         "amount"
       ]
     }
-  ]
+  }
 }
