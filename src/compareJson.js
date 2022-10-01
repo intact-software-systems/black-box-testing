@@ -40,72 +40,114 @@ function isCompatibleObjects(expected, actual, compareValues = true) {
         if (expected[key] instanceof Object) {
 
             if (!(actual[key] instanceof Object)) {
-                return false
+                return toNotCompatible(expected, actual, '!(' + actual[key] + ') instanceof Object')
             }
 
-            if (!isCompatibleObjects(expected[key], actual[key], compareValues)) {
-                return false
+            let compatibleObjects = isCompatibleObjects(expected[key], actual[key], compareValues)
+            if (!compatibleObjects.isEqual) {
+                return compatibleObjects
             }
         } else if (Array.isArray(expected[key])) {
 
             if (!Array.isArray(actual[key])) {
-                return false
+                return toNotCompatible(expected, actual, '!Array.isArray(' + actual[key] + ')')
             }
 
-            if (!isCompatibleArrays(expected[key], actual[key], compareValues)) {
-                return false
+            let compatibleArrays = isCompatibleArrays(expected[key], actual[key], compareValues)
+            if (!compatibleArrays.isEqual) {
+                return compatibleArrays
             }
         } else {
 
             if (!actual.hasOwnProperty(key)) {
-                return false
+                return toNotCompatible(expected, actual, '!' + actual + '.hasOwnProperty(' + key + ')')
             }
 
             if (compareValues && !isValueEqual(expected[key], actual[key])) {
-                return false
+                return toNotCompatible(expected, actual, '!isValueEqual(' + expected[key] + ', ' + actual[key] + ')')
             }
         }
     }
-    return true
+    return toCompatible()
 }
 
 
+function toNotCompatible(expected, actual, message, details = {}) {
+    return {
+        isEqual: false,
+        message: message,
+        expected: expected,
+        actual: actual,
+        ...details
+    }
+}
+
+function toCompatible() {
+    return {
+        isEqual: true
+    }
+}
+
 function isCompatibleArrays(expected, actual, compareValues = true) {
     if (!Array.isArray(actual)) {
-        return false
+        return toNotCompatible(expected, actual, 'expected array was object')
     }
 
     if (expected.length > actual.length) {
-        return false
+        return toNotCompatible(expected, actual, 'Expected that expected.length > actual.length but was ' + expected.length + '<= ' + actual.length)
     }
 
     const expectedFound = []
+    const expectedNotFound = [...expected]
     const actualToCompare = [...actual]
 
-    for (const expectedValue of expected) {
+    for (let i = 0; i < expected.length; i++) {
+
+        const expectedValue = expected[i]
 
         // Algorithm: find first actualValue in actual that is identical to expectedValue
-        for (let i = 0; i < actualToCompare.length; i++) {
-            if (actualToCompare[i] === undefined) {
+        for (let j = 0; j < actualToCompare.length; j++) {
+            if (actualToCompare[j] === undefined) {
                 continue
             }
 
-            const actualValue = actualToCompare[i]
+            const actualValue = actualToCompare[j]
 
             if (Array.isArray(expectedValue)) {
-                if (!isCompatibleArrays(expectedValue, actualValue, compareValues)) {
-                    return false
+                let compatibilityMessage = isCompatibleArrays(expectedValue, actualValue, compareValues)
+                if (!compatibilityMessage.isEqual) {
+                    return compatibilityMessage
                 }
-            } else if (isCompatibleObjects(expectedValue, actualValue, compareValues)) {
-                expectedFound.push(expectedValue)
-                actualToCompare[i] = undefined
+            } else {
+                let compatibilityMessage = isCompatibleObjects(expectedValue, actualValue, compareValues)
+                if (compatibilityMessage.isEqual) {
+                    expectedFound.push(expectedValue)
+                    actualToCompare[j] = undefined
+                    expectedNotFound[i] = undefined
+                }
             }
         }
     }
 
-    return compareValues
-        ? expectedFound.length === expected.length
-        : expectedFound.length >= expected.length
+    if (compareValues) {
+        return expectedFound.length === expected.length
+            ? toCompatible()
+            : toNotCompatible(expected, actual, 'Json structure not compatible', {
+                expectedFound: expectedFound.filter(a => a !== undefined),
+                expectedNotFound: expectedNotFound.filter(a => a !== undefined),
+                actualNotFound: actualToCompare.filter(a => a !== undefined)
+            })
+    } else {
+        let foundExpected = expectedFound.length >= expected.length
+        if (!foundExpected) {
+            return toNotCompatible(expected, actual, 'Did not find the expected in actual', {
+                expectedFound: expectedFound.filter(a => a !== undefined),
+                expectedNotFound: expectedNotFound.filter(a => a !== undefined),
+                actualNotFound: actualToCompare.filter(a => a !== undefined)
+            })
+        }
+        return toCompatible()
+    }
 }
 
 
