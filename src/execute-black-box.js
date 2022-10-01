@@ -127,7 +127,7 @@ function executeInteraction(index, interactionWithConfig) {
         })
         .then(data => {
             return {
-                [index]: data
+                [index + '-' + config.interactionName]: data
             }
         })
         .catch(e => {
