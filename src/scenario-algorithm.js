@@ -81,7 +81,10 @@ function replaceAlways(target, replace, generateAlways) {
 
 function toInteraction(input) {
     const interaction = {
-        request: {},
+        request: {
+            interactionExecutionNumber: input.interactionExecutionNumber,
+            scenarioExecutionNumber: input.scenarioExecutionNumber
+        },
         response: {}
     }
 
@@ -203,7 +206,9 @@ function toInjectGeneratedValues(replace, generateConstants, i) {
 function toInteractions(input, numOfInteractions = 1) {
     const interactions = []
 
-    for (let i = 1; i < numOfInteractions + 1; i++) {
+    for (let i = 1; i <= numOfInteractions; i++) {
+        input.interactionExecutionNumber = i
+
         const replaceRule = findReplaceRule(input.interactionReplaceRules, i, numOfInteractions)
 
         input.generateForEach = [
@@ -294,7 +299,7 @@ function toGenerateAlways(inputGenerateAlways, interactionGenerateAlways) {
     ]
 }
 
-function toScenario(input, globalReplace, replaceRule = {}) {
+function toScenario(input, globalReplace, replaceRule = {}, scenarioExecutionNumber = 1) {
     replaceRule.generateConstants = toGenerateConstants(replaceRule.generateConstants || [])
 
     return Object.entries(input.interactions)
@@ -309,6 +314,7 @@ function toScenario(input, globalReplace, replaceRule = {}) {
             return toInteractions(
                 {
                     interactionName: interactionName,
+                    scenarioExecutionNumber: scenarioExecutionNumber,
                     replace: {
                         ...globalReplace,
                         ...interaction?.replace
@@ -353,12 +359,13 @@ function toGenerateConstants(generateConstants) {
 
 function createScenariosFromInput(input, numOfScenarios = 1) {
     const scenarios = []
-    for (let i = 0; i < numOfScenarios; i++) {
+    for (let i = 1; i <= numOfScenarios; i++) {
         scenarios.push(
             toScenario(
                 input,
                 utils.toReplace(input.generateForEach, input.replace),
-                findReplaceRule(input.replaceRules, i + 1, numOfScenarios)
+                findReplaceRule(input.replaceRules, i, numOfScenarios),
+                i
             )
         )
     }

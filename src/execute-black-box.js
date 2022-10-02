@@ -29,6 +29,8 @@ function toStatus(config, result, actualJson, res, interaction, results = {}) {
         result: result,
         method: interaction.request.method || 'GET',
         path: interaction.request.path,
+        scenarioExecutionNumber: config.interaction.request.scenarioExecutionNumber,
+        interactionExecutionNumber: config.interaction.request.interactionExecutionNumber,
         expected: interaction.response,
         actual: {
             body: actualJson,
@@ -47,6 +49,8 @@ function toSuccessStatus(config, actualJson, response, interaction) {
         result: 'OK',
         method: interaction.request.method,
         path: interaction.request.path,
+        scenarioExecutionNumber: config.interaction.request.scenarioExecutionNumber,
+        interactionExecutionNumber: config.interaction.request.interactionExecutionNumber,
         expected: interaction.response,
         actual: {
             body: actualJson,
@@ -134,14 +138,18 @@ function toRequest(request) {
 
 }
 
+function toOutputKey(interactionData) {
+    return interactionData.scenarioExecutionNumber + '-' + interactionData.name + '-' + interactionData.interactionExecutionNumber
+}
+
 
 function fetchDataBasic(request) {
     return fetch(
         request.path,
         {
             method: request.method,
-            credentials: 'omit',
-            mode: 'cors',
+            credentials: request.credentials ? request.credentials : 'omit',
+            mode: request.mode ? request.mode : 'cors',
             headers: request.headers,
             body: toBody(request)
         }
@@ -215,6 +223,10 @@ export function executeBlackBox(interactions, index) {
             [interactionData.name + '-' + index]: interactionData
         }
 
+        if (interactionData.status === FAILURE) {
+            return data
+        }
+
         if (interactionData.output) {
             output.set(
                 interactionData.output,
@@ -224,9 +236,12 @@ export function executeBlackBox(interactions, index) {
             )
         }
 
-        if (interactionData.status === FAILURE) {
-            return data
-        }
+        output.set(
+            toOutputKey(interactionData),
+            {
+                [toOutputKey(interactionData)]: interactionData.actual
+            }
+        )
 
         if (index + 1 < interactions.length) {
             return executeBlackBox(interactions, ++index)

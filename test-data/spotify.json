@@ -29,6 +29,7 @@
       }
     },
     "getNewReleases": {
+      "numOfInteractions": 10,
       "HTTP": {
         "request": {
           "path": "{url}/browse/new-releases",
@@ -44,6 +45,7 @@
       }
     },
     "getNewRoundOfReleases": {
+      "numOfInteractions": 10,
       "HTTP": {
         "input": [
           "auth"
