@@ -46,7 +46,6 @@ function toSuccessStatus(config, actualJson, response, interaction) {
     return {
         name: config.interactionName,
         status: SUCCESS,
-        result: 'OK',
         method: interaction.request.method,
         path: interaction.request.path,
         scenarioExecutionNumber: config.interaction.request.scenarioExecutionNumber,
