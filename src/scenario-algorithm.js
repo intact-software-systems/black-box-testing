@@ -270,6 +270,10 @@ function toRequest(request) {
 }
 
 function toResponse(response) {
+    if (response === undefined) {
+        return {}
+    }
+
     const {...outResponse} = response
 
     outResponse.body = response.body ? resolveInputData(response.body) : {}

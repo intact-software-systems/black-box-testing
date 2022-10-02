@@ -1,6 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Deno: scenario-generate.js" type="DenoConfigurationType" inputPath="$PROJECT_DIR$/scenario-generate.js" programParameters="run --allow-env --allow-read --allow-write ">
-    <option name="applicationArguments" value="-c ./test-data/config.json " />
-    <method v="2" />
-  </configuration>
-</component>

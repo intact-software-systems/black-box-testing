@@ -3,23 +3,16 @@ import * as compare from './compareJson.js'
 const SUCCESS = 'SUCCESS'
 const FAILURE = 'FAILURE'
 
+const output = new Map()
+
 function toBody(request) {
-    return request.body && request.method !== 'GET'
+    if (request.form) {
+        return new URLSearchParams(request.form)
+    }
+
+    return request.body && request.method !== undefined && request.method !== 'GET'
         ? JSON.stringify(request.body)
         : undefined
-}
-
-function fetchDataBasic(request) {
-    return fetch(
-        request.path,
-        {
-            method: request.method,
-            credentials: 'omit',
-            mode: 'cors',
-            headers: request.headers,
-            body: toBody(request)
-        }
-    )
 }
 
 async function toJson(res) {
@@ -32,9 +25,9 @@ async function toJson(res) {
 function toStatus(config, result, actualJson, res, interaction, results = {}) {
     return {
         name: config.interactionName,
-        test: FAILURE,
+        status: FAILURE,
         result: result,
-        method: interaction.request.method,
+        method: interaction.request.method || 'GET',
         path: interaction.request.path,
         expected: interaction.response,
         actual: {
@@ -47,10 +40,10 @@ function toStatus(config, result, actualJson, res, interaction, results = {}) {
     }
 }
 
-function toSuccessStatus(name, actualJson, response, interaction) {
+function toSuccessStatus(config, actualJson, response, interaction) {
     return {
-        name: name,
-        test: SUCCESS,
+        name: config.interactionName,
+        status: SUCCESS,
         result: 'OK',
         method: interaction.request.method,
         path: interaction.request.path,
@@ -59,7 +52,9 @@ function toSuccessStatus(name, actualJson, response, interaction) {
             body: actualJson,
             statusCode: response.status,
             statusText: response.statusText
-        }
+        },
+        output: interaction.request.output,
+        input: interaction.request.input
     }
 }
 
@@ -78,16 +73,88 @@ function toInteractionConfig(interactionWithConfig) {
     }
 }
 
+function toInteraction(interactions, index) {
+    return interactions[index] || interactions[index]
+}
+
+function toNetworkInteraction(interaction) {
+    return interaction?.HTTP || interaction?.MQ
+}
+
+function fetchDataBasic(request) {
+    return fetch(
+        request.path,
+        {
+            method: request.method,
+            credentials: 'omit',
+            mode: 'cors',
+            headers: request.headers,
+            body: toBody(request)
+        }
+    )
+}
+
+function toRequest(request) {
+    if (!request.input || request.input.length <= 0) {
+        return request
+    }
+
+    let returnRequest = JSON.stringify(request)
+
+    request.input
+        .forEach(i => {
+            const data = output.get(i)
+
+            const getPath = (currPath, item, allPaths) => {
+                if(!Array.isArray(item) && typeof item !== 'object')
+                    allPaths.push(currPath)
+
+                if (Array.isArray(item)) {
+                    item.forEach((el, idx) => getPath(`${currPath}.${idx}`, el, allPaths));
+                } else if (typeof item == "object") {
+                    Object.entries(item)
+                        .forEach(([key, value]) => {
+                        getPath(`${currPath}.${key}`, value, allPaths);
+                    });
+                }
+                return allPaths
+            };
+
+            const resolve = (path, obj) => {
+                return path.split('.')
+                    .reduce((prev, curr) => prev ? prev[curr] : null, obj || self)
+            }
+
+            Object.entries(data)
+                .forEach(([key, value]) => {
+                getPath(key, value, [])
+                    .forEach(path => {
+                        const pathData = resolve(path, data)
+
+                        returnRequest = returnRequest.replaceAll('{' + path + '}', pathData)
+                    })
+
+            });
+
+        })
+
+    return JSON.parse(returnRequest)
+
+}
+
 function executeInteraction(index, interactionWithConfig) {
+    if (!interaction) {
+        return Promise.resolve()
+    }
+
     const interaction = toNetworkInteraction(interactionWithConfig)
+
+    interaction.request = toRequest(interaction.request)
+
     const config = {
         interactionName: toInteractionName(interactionWithConfig),
         interactionConfig: toInteractionConfig(interactionWithConfig),
         interaction: interaction
-    }
-
-    if (!interaction) {
-        return Promise.resolve()
     }
 
     return fetchDataBasic(interaction.request)
@@ -123,35 +190,37 @@ function executeInteraction(index, interactionWithConfig) {
                 return toStatus(config, 'Expected responseCode not the same as actual responseCode', actualJson, response, interaction)
             }
 
-            return toSuccessStatus(config.interactionName, actualJson, response, interaction)
-        })
-        .then(data => {
-            return {
-                [index + '-' + config.interactionName]: data
-            }
+            return toSuccessStatus(config, actualJson, response, interaction)
         })
         .catch(e => {
             return {
-                [index]: {
-                    exception: e?.message,
-                    name: config,
-                    config: interactionWithConfig
-                }
+                name: config.interactionName,
+                exception: e?.message,
+                ...config
             }
         })
-}
-
-function toInteraction(interactions, index) {
-    return interactions[index] || interactions[index]
-}
-
-function toNetworkInteraction(interaction) {
-    return interaction?.HTTP || interaction?.MQ
 }
 
 
 export function executeBlackBox(interactions, index) {
-    const executeNext = data => {
+    const executeNext = interactionData => {
+        const data = {
+            [interactionData.name + '-' + index]: interactionData
+        }
+
+        if (interactionData.output) {
+            output.set(
+                interactionData.output,
+                {
+                    [interactionData.output]: interactionData.actual
+                }
+            )
+        }
+
+        if (interactionData.status === FAILURE) {
+            return data
+        }
+
         if (index + 1 < interactions.length) {
             return executeBlackBox(interactions, ++index)
                 .then(d => {
