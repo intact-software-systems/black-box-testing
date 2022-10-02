@@ -89,7 +89,7 @@ function toReplaceGlobal(generate, replace) {
     }
 }
 
-function inputOverridesToJson(input) {
+function inputReplacesToJson(input) {
     if (!input || input.length <= 1) {
         return {}
     }
@@ -105,9 +105,9 @@ function inputOverridesToJson(input) {
 
         const obj = {}
 
-        const value = values[i].split('=')
+        const value = values[i].split(':=')
         if (value.length !== 2) {
-            console.warn('Ignoring overrides. Failed to parse overrides in input ' + input + ' Failed with ' + value)
+            console.warn('Ignoring replace. Failed to parse replace in input ' + input + ' Failed with ' + value)
             return {}
         }
 
@@ -166,5 +166,5 @@ export default {
             return [a, b]
         }),
 
-    inputOverridesToJson: csv => inputOverridesToJson(csv)
+    inputReplacesToJson: csv => inputReplacesToJson(csv)
 }

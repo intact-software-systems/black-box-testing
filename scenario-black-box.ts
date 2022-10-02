@@ -9,7 +9,7 @@ const program = new Command()
 program
     .requiredOption('-c, --config <config>', 'Config file in json format', value => value)
     .option('-w, --workingDirectory <workingDirectory>', 'Working directory')
-    .option('-o, --override <override>', 'Override global replace tags. Example: tag1=value,tag2=value . No space in string')
+    .option('-r, --replace <replace>', 'Replace tags. Example: tag1:=value,tag2:=value . No space in string')
 
 program.on('-h, --help', () => {
     console.log('')
@@ -17,9 +17,9 @@ program.on('-h, --help', () => {
     console.log('  $ scenario-generate --config config.json')
     console.log('  $ scenario-generate -c config.json')
 
-    console.log('  $ scenario-generate --config config.json --override url=http://localhost:8080/led/api/v1,valuDate=2022-10-01')
-    console.log('  $ scenario-generate -c config.json -o url=http://localhost:8080/led/api/v1,valuDate=2022-10-01')
-    console.log('  $ scenario-generate -c config.json -w ./test-data -o url=http://localhost:8080/led/api/v1,valuDate=2022-10-01')
+    console.log('  $ scenario-generate --config config.json --replace url:=http://localhost:8080/led/api/v1,valuDate:=2022-10-01')
+    console.log('  $ scenario-generate -c config.json -r url:=http://localhost:8080/led/api/v1,valuDate:=2022-10-01')
+    console.log('  $ scenario-generate -c config.json -w ./test-data -r url:=http://localhost:8080/led/api/v1,valuDate:=2022-10-01')
 })
 
 program.parse(process.argv)
@@ -30,7 +30,7 @@ const input = utils.openFile(program.opts().config)
 
 input.replace = {
     ...input.replace,
-    ...(utils.inputOverridesToJson(program.opts().override))
+    ...(utils.inputReplacesToJson(program.opts().replace))
 }
 
 const scenarioJson = scenarioAlgorithms.createScenarios(input)

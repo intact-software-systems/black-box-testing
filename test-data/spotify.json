@@ -1,0 +1,65 @@
+{
+  "replace": {
+    "url": "https://api.spotify.com/v1"
+  },
+  "interactions": {
+    "auth": {
+      "HTTP": {
+        "request": {
+          "path": "https://accounts.spotify.com/api/token",
+          "method": "POST",
+          "headers": {
+            "Authorization": "Basic {basicAuth}",
+            "Accept": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          "form": {
+            "grant_type": "client_credentials"
+          },
+          "output": "auth"
+        },
+        "response": {
+          "body": {
+            "access_token": "string",
+            "token_type": "Bearer",
+            "expires_in": "integer"
+          },
+          "statusCode": 200
+        }
+      }
+    },
+    "getNewReleases": {
+      "HTTP": {
+        "request": {
+          "path": "{url}/browse/new-releases",
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": "{auth.body.token_type} {auth.body.access_token}"
+          },
+          "input": [
+            "auth"
+          ]
+        }
+      }
+    },
+    "getNewRoundOfReleases": {
+      "HTTP": {
+        "input": [
+          "auth"
+        ],
+        "request": {
+          "path": "{url}/browse/new-releases",
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": "{auth.body.token_type} {auth.body.access_token}"
+          },
+          "input": [
+            "auth"
+          ]
+        }
+      }
+    }
+  }
+}
