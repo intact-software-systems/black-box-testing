@@ -81,19 +81,6 @@ function toNetworkInteraction(interaction) {
     return interaction?.HTTP || interaction?.MQ
 }
 
-function fetchDataBasic(request) {
-    return fetch(
-        request.path,
-        {
-            method: request.method,
-            credentials: 'omit',
-            mode: 'cors',
-            headers: request.headers,
-            body: toBody(request)
-        }
-    )
-}
-
 function toRequest(request) {
     if (!request.input || request.input.length <= 0) {
         return request
@@ -146,6 +133,21 @@ function toRequest(request) {
     return JSON.parse(returnRequest)
 
 }
+
+
+function fetchDataBasic(request) {
+    return fetch(
+        request.path,
+        {
+            method: request.method,
+            credentials: 'omit',
+            mode: 'cors',
+            headers: request.headers,
+            body: toBody(request)
+        }
+    )
+}
+
 
 function executeInteraction(index, interactionWithConfig) {
     const interaction = toNetworkInteraction(interactionWithConfig)

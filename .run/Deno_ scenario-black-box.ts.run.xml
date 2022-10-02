@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Deno: scenario-black-box.ts" type="DenoConfigurationType" inputPath="$PROJECT_DIR$/scenario-black-box.ts" programParameters="run --allow-env --allow-read --allow-write --allow-net ">
+    <option name="applicationArguments" value="-c ./test-data/config.json " />
+    <method v="2" />
+  </configuration>
+</component>

@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Deno: scenario-black-box.ts with working directory URI" type="DenoConfigurationType" inputPath="$PROJECT_DIR$/scenario-black-box.ts" programParameters="run --allow-env --allow-read --allow-write --allow-net ">
+    <option name="applicationArguments" value="-w black-box-tests/uri-batch -c recipe.json &gt; results.json" />
+    <method v="2" />
+  </configuration>
+</component>
