@@ -1,3 +1,19 @@
+function toNotCompatible(expected, actual, message, details = {}) {
+    return {
+        isEqual: false,
+        message: message,
+        expected: expected,
+        actual: actual,
+        ...details
+    }
+}
+
+function toCompatible() {
+    return {
+        isEqual: true
+    }
+}
+
 function isValueEqual(expected, actual) {
     if (!expected && !actual) {
         return true
@@ -69,23 +85,6 @@ function isCompatibleObjects(expected, actual, compareValues = true) {
         }
     }
     return toCompatible()
-}
-
-
-function toNotCompatible(expected, actual, message, details = {}) {
-    return {
-        isEqual: false,
-        message: message,
-        expected: expected,
-        actual: actual,
-        ...details
-    }
-}
-
-function toCompatible() {
-    return {
-        isEqual: true
-    }
 }
 
 function isCompatibleArrays(expected, actual, compareValues = true) {
