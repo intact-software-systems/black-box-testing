@@ -1,3 +1,8 @@
+const ANY = 'any'
+const ANY_INTEGER = 'integer'
+const ANY_FLOAT = 'float'
+const ANY_STRING = 'string'
+
 function toNotCompatible(expected, actual, message, details = {}) {
     return {
         isEqual: false,
@@ -25,6 +30,24 @@ function isValueEqual(expected, actual) {
 
     if (expected && actual === undefined) {
         return false
+    }
+
+    if(expected === ANY) {
+        return true
+    }
+
+    if(expected === ANY_INTEGER) {
+        const number = Number.parseInt(actual)
+        return Number.isInteger(number)
+    }
+
+    if(expected === ANY_FLOAT) {
+        const number = Number.parseFloat(actual)
+        return number % 1 !== 0
+    }
+
+    if(expected === ANY_STRING) {
+        return typeof actual === 'string'
     }
 
     if (Number.isFinite(expected) && !Number.isFinite(actual)) {

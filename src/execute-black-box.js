@@ -102,23 +102,28 @@ function toRequest(request) {
     let returnRequest = JSON.stringify(request)
 
     request.input
-        .forEach(i => {
+        .map(i => {
             const data = output.get(i)
-
-            const getPath = (currPath, item, allPaths) => {
-                if(!Array.isArray(item) && typeof item !== 'object')
-                    allPaths.push(currPath)
+            if (data === undefined) {
+                throw 'Input data was not found: ' + i
+            }
+            return data
+        })
+        .forEach(data => {
+            const getValuePaths = (currPath, item, valuePaths = []) => {
+                if (!Array.isArray(item) && typeof item !== 'object')
+                    valuePaths.push(currPath)
 
                 if (Array.isArray(item)) {
-                    item.forEach((el, idx) => getPath(`${currPath}.${idx}`, el, allPaths));
+                    item.forEach((el, idx) => getValuePaths(`${currPath}.${idx}`, el, valuePaths))
                 } else if (typeof item == "object") {
                     Object.entries(item)
                         .forEach(([key, value]) => {
-                        getPath(`${currPath}.${key}`, value, allPaths);
-                    });
+                            getValuePaths(`${currPath}.${key}`, value, valuePaths)
+                        })
                 }
-                return allPaths
-            };
+                return valuePaths
+            }
 
             const resolve = (path, obj) => {
                 return path.split('.')
@@ -127,14 +132,14 @@ function toRequest(request) {
 
             Object.entries(data)
                 .forEach(([key, value]) => {
-                getPath(key, value, [])
-                    .forEach(path => {
-                        const pathData = resolve(path, data)
+                    getValuePaths(key, value)
+                        .forEach(path => {
+                            const pathData = resolve(path, data)
 
-                        returnRequest = returnRequest.replaceAll('{' + path + '}', pathData)
-                    })
+                            returnRequest = returnRequest.replaceAll('{' + path + '}', pathData)
+                        })
 
-            });
+                })
 
         })
 
@@ -143,11 +148,11 @@ function toRequest(request) {
 }
 
 function executeInteraction(index, interactionWithConfig) {
+    const interaction = toNetworkInteraction(interactionWithConfig)
+
     if (!interaction) {
         return Promise.resolve()
     }
-
-    const interaction = toNetworkInteraction(interactionWithConfig)
 
     interaction.request = toRequest(interaction.request)
 
