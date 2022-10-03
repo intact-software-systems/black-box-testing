@@ -43,3 +43,24 @@ Execute script
 scenario-black-box -c config.json
 ```
 
+## Test data spotify.json
+
+If you have a spotify account you can register an [app](https://developer.spotify.com/dashboard/applications) and get access to Spotify's Rest API.
+
+Then your app gets a clientId and a secret which you can create a Basic auth for:
+
+```text
+echo -n 'clientId:secret' | base64
+```
+
+You can use this to execute the test-data/spotify.json like so:
+
+```shell
+scenario-black-box --config ./test-data/spotify.json --replace basicAuth:=yourbase64encodedclientidsecret > spotify-results.json
+```
+
+Then you will start to interact with spotify.
+
+If you wish to start to add testing of responses you can add response json in each HTTP. See interaction auth for an example.
+
+
