@@ -30,7 +30,7 @@ const input = utils.openFile(program.opts().config)
 
 input.replace = {
     ...input.replace,
-    ...(utils.inputReplacesToJson(program.opts().replace))
+    ...utils.inputReplacesToJson(program.opts().replace)
 }
 
 const scenarioJson = scenarioAlgorithms.createScenarios(input)

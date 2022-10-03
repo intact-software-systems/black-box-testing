@@ -210,6 +210,7 @@ function executeInteraction(index, interactionWithConfig) {
             return {
                 name: config.interactionName,
                 exception: e?.message,
+                status: FAILURE,
                 ...config
             }
         })
