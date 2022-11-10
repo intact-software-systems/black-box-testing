@@ -329,7 +329,7 @@ function toScenario(input, globalReplace, replaceRule = {}, scenarioExecutionNum
                         headers: toHeaders(
                             interactionTemplate.request?.headerTemplateFile,
                             interactionTemplate.request?.headers,
-                            input?.headerTemplateFile?.[toTechnology(interaction.technology)] || input?.headerTemplateFile
+                            input?.headerTemplateFile?.[toTechnology(interaction.technology)] || input?.headerTemplateFile || input?.headers
                         )
                     },
                     responseTemplate: {

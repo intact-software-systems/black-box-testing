@@ -1,4 +1,4 @@
-import {readFileSync, writeFile} from "https://deno.land/std@0.156.0/node/fs.ts";
+import { readFileSync } from "https://deno.land/std@0.156.0/node/fs.ts"
 
 function randomIban(countryCode, technicalOrgNum) {
     return countryCode + randomInteger(20, 90) + technicalOrgNum + randomInteger(1000000, 9999999)
@@ -8,17 +8,13 @@ function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min
 }
 
-function uuid() {
-    return crypto.randomUUID()
-}
-
 function generateReplace(generate, config) {
     const filtered = generate
         .map(value => {
             switch (value) {
                 case 'uuid':
                     return {
-                        uuid: uuid()
+                        uuid: crypto.randomUUID()
                     }
                 case 'iban':
                     return {
@@ -129,14 +125,6 @@ function toPath(name) {
 export default {
     setWorkingDirectory: dir => workingDirectory = dir || '.',
 
-    saveToFile: (fileName, data) => {
-        writeFile(fileName, JSON.stringify(data, null, 2), 'utf8', (err) => {
-            if (err) {
-                throw 'Failed to save' + err
-            }
-        })
-    },
-
     openFile: fileName => {
         return JSON.parse(readFileSync(toPath(fileName)).toString())
     },
@@ -151,20 +139,6 @@ export default {
         }
         return generateReplace(generate || [], config || {})
     },
-
-    flattenInputArray: array => array
-        .reduce((a, b) => {
-            if (Array.isArray(a) && Array.isArray(b)) {
-                return [...a, ...b]
-            }
-            else if (Array.isArray(a)) {
-                return [...a, b]
-            }
-            else if (Array.isArray(b)) {
-                return [a, ...b]
-            }
-            return [a, b]
-        }),
 
     inputReplacesToJson: csv => inputReplacesToJson(csv)
 }
