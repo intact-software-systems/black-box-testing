@@ -248,7 +248,10 @@ function toHeaders(headerFile, headers, defaultHeaders) {
     if (headerFile) {
         return utils.openFile(headerFile)
     }
-    return headers ? headers : utils.openFile(defaultHeaders)
+
+    return headers ? headers
+        : defaultHeaders instanceof Object ? defaultHeaders
+            : utils.openFile(defaultHeaders)
 }
 
 function resolveInputData(data) {
