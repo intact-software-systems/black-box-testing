@@ -76,10 +76,6 @@ function toInteractionConfig(interactionWithConfig) {
     }
 }
 
-function toInteraction(interactions, index) {
-    return interactions[index] || interactions[index]
-}
-
 function toNetworkInteraction(interaction) {
     return interaction?.HTTP || interaction?.MQ
 }
@@ -156,7 +152,7 @@ function fetchDataBasic(request) {
 }
 
 
-function executeInteraction(index, interactionWithConfig) {
+function executeInteraction(interactionWithConfig) {
     const interaction = toNetworkInteraction(interactionWithConfig)
 
     if (!interaction) {
@@ -256,7 +252,7 @@ export function executeBlackBox(interactions, index) {
         }
     }
 
-    return executeInteraction(index + 1, toInteraction(interactions, index))
+    return executeInteraction(interactions[index])
         .then(data => executeNext(data))
         .catch(e => executeNext(e))
 }

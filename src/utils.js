@@ -1,4 +1,4 @@
-import { readFileSync } from "https://deno.land/std@0.156.0/node/fs.ts"
+import {readFileSync} from 'https://deno.land/std@0.156.0/node/fs.ts'
 
 function randomIban(countryCode, technicalOrgNum) {
     return countryCode + randomInteger(20, 90) + technicalOrgNum + randomInteger(1000000, 9999999)
@@ -97,11 +97,11 @@ function inputReplacesToJson(input) {
 
     let resultJson = {}
 
-    for (let i = 0; i < values.length; i++) {
+    for (const element of values) {
 
         const obj = {}
 
-        const value = values[i].split(':=')
+        const value = element.split(':=')
         if (value.length !== 2) {
             console.warn('Ignoring replace. Failed to parse replace in input ' + input + ' Failed with ' + value)
             return {}
@@ -116,10 +116,10 @@ function inputReplacesToJson(input) {
 }
 
 
-let workingDirectory = '.';
+let workingDirectory = '.'
 
 function toPath(name) {
-    return workingDirectory + "/" + name
+    return workingDirectory + '/' + name
 }
 
 export default {
@@ -134,7 +134,7 @@ export default {
     },
 
     generateReplace: (generate, config) => {
-        if(!generate.length) {
+        if (!generate.length) {
             return []
         }
         return generateReplace(generate || [], config || {})
