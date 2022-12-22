@@ -108,3 +108,5 @@ dist
 .vscode
 
 black-box-tests
+
+deno.lock
