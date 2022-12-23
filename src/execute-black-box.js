@@ -1,4 +1,5 @@
 import * as compare from './compareJson.js'
+import {COMPARISON} from './compareJson.js'
 
 const SUCCESS = 'SUCCESS'
 const FAILURE = 'FAILURE'
@@ -102,7 +103,8 @@ function toRequest(request) {
 
                 if (Array.isArray(item)) {
                     item.forEach((el, idx) => getValuePaths(`${currPath}.${idx}`, el, valuePaths))
-                } else if (typeof item == "object") {
+                }
+                else if (typeof item == 'object') {
                     Object.entries(item)
                         .forEach(([key, value]) => {
                             getValuePaths(`${currPath}.${key}`, value, valuePaths)
@@ -178,20 +180,11 @@ function executeInteraction(interactionWithConfig) {
             if (interaction?.response?.body) {
                 if (!actualJson) {
                     return toStatus(config, 'Server with no body in response. Expects a body.', actualJson, response, interaction)
-                } else {
-
-                    {
-                        let results = compare.isJsonStructureCompatible(interaction.response.body, actualJson)
-                        if (!results.isEqual) {
-                            return toStatus(config, 'Expected response incompatible with actual response', actualJson, response, interaction, results)
-                        }
-                    }
-
-                    {
-                        let results = compare.isJsonCompatible(interaction.response.body, actualJson)
-                        if (!results.isEqual) {
-                            return toStatus(config, 'Expected response not the same as actual response', actualJson, response, interaction, results)
-                        }
+                }
+                else {
+                    let results = compare.compareJson(interaction.response.body, actualJson, interaction.response?.comparison || COMPARISON.COMPATIBLE)
+                    if (!results.isEqual) {
+                        return toStatus(config, 'Expected response not the same as actual response', actualJson, response, interaction, results)
                     }
                 }
             }
@@ -247,7 +240,8 @@ export function executeBlackBox(interactions, index) {
                 .catch(e => {
                     return {...data, ...e}
                 })
-        } else {
+        }
+        else {
             return data
         }
     }

@@ -92,7 +92,8 @@ function toInteraction(input) {
         .forEach(key => {
             if (input.generateAlways) {
                 interaction.request[key] = replaceAlways(JSON.stringify(input.requestTemplate[key]), input.replace, input.generateAlways)
-            } else {
+            }
+            else {
                 interaction.request[key] = replaceData(JSON.stringify(input.requestTemplate[key]), input.replace)
             }
         })
@@ -101,7 +102,8 @@ function toInteraction(input) {
         .forEach(key => {
             if (input.generateAlways) {
                 interaction.response[key] = replaceAlways(JSON.stringify(input.responseTemplate[key]), input.replace, input.generateAlways)
-            } else {
+            }
+            else {
                 interaction.response[key] = replaceData(JSON.stringify(input.responseTemplate[key]), input.replace)
             }
         })
@@ -311,7 +313,7 @@ function toScenario(input, globalReplace, replaceRule = {}, scenarioExecutionNum
 
             if (interactionTemplate === undefined || interactionTemplate.request === undefined) {
                 console.log(interaction)
-                throw new Error("Cannot find interaction template")
+                throw new Error('Cannot find interaction template')
             }
 
             return toInteractions(
