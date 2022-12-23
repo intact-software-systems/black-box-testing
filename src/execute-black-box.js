@@ -208,7 +208,7 @@ function executeInteraction(interactionWithConfig) {
 export function executeBlackBox(interactions, index) {
     const executeNext = interactionData => {
         const data = {
-            [interactionData.name + '-' + index]: interactionData
+            [interactionData.name + '-' + (index + 1)]: interactionData
         }
 
         if (interactionData.status === FAILURE) {
