@@ -210,11 +210,16 @@ function isCompatibleArrays(expected, actual, compareValues = true, compareExact
     }
 }
 
-
 function isJsonStructureCompatible(expected, actual) {
     return Array.isArray(expected)
         ? isCompatibleArrays(expected, actual, false, false)
         : isCompatibleObjects(expected, actual, false, false)
+}
+
+function isJsonStructureExact(expected, actual) {
+    return Array.isArray(expected)
+        ? isCompatibleArrays(expected, actual, false, true)
+        : isCompatibleObjects(expected, actual, false, true)
 }
 
 function isJsonCompatible(expected, actual) {
@@ -230,15 +235,18 @@ function isJsonIdentical(expected, actual) {
 }
 
 export const COMPARISON = {
-    EXACT: 'exact',
+    STRUCTURE: 'structure',
+    EXACT_STRUCTURE: 'exact-structure',
     COMPATIBLE: 'compatible',
-    STRUCTURE: 'structure'
+    EXACT: 'exact'
 }
 
 export function compareJson(expected, actual, comparison) {
     switch (comparison.toLowerCase()) {
         case COMPARISON.STRUCTURE:
             return isJsonStructureCompatible(expected, actual)
+        case COMPARISON.EXACT_STRUCTURE:
+            return isJsonStructureExact(expected, actual)
         case COMPARISON.COMPATIBLE:
             return isJsonCompatible(expected, actual)
         case COMPARISON.EXACT:

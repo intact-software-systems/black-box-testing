@@ -1,5 +1,4 @@
-import * as compare from './compareJson.js'
-import {COMPARISON} from './compareJson.js'
+import {compareJson, COMPARISON} from './compareJson.js'
 
 const SUCCESS = 'SUCCESS'
 const FAILURE = 'FAILURE'
@@ -182,7 +181,7 @@ function executeInteraction(interactionWithConfig) {
                     return toStatus(config, 'Server with no body in response. Expects a body.', actualJson, response, interaction)
                 }
                 else {
-                    let results = compare.compareJson(interaction.response.body, actualJson, interaction.response?.comparison || COMPARISON.COMPATIBLE)
+                    let results = compareJson(interaction.response.body, actualJson, interaction.response?.comparison || COMPARISON.COMPATIBLE)
                     if (!results.isEqual) {
                         return toStatus(config, 'Expected response not the same as actual response', actualJson, response, interaction, results)
                     }
