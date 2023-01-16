@@ -1,5 +1,6 @@
 import utils from './utils.js'
-import * as typeGenerators from './type-generators.js'
+import {toRandomFromType} from './type-generators.js'
+import {toJsonMock, toSchemaType} from './json-mock-from-schema.js'
 
 function toTechnology(technology) {
     return technology || 'HTTP'
@@ -256,16 +257,20 @@ function toHeaders(headerFile, headers, defaultHeaders) {
             : utils.openFile(defaultHeaders)
 }
 
-function resolveInputData(data) {
-    const extracted = data?.templateFile
+function resolveTemplate(data) {
+    return data?.templateFile
         ? utils.openFile(data.templateFile)
         : data.template
+}
 
-    const final = data?.entryName && extracted
-        ? extracted[data?.entryName]
-        : extracted
+function resolveEntry(data, template) {
+    return data?.entryName
+        ? utils.resolvePathData(data.entryName, template)
+        : undefined
+}
 
-    return final || data
+function resolveInputData(data) {
+    return resolveEntry(data, resolveTemplate(data)) || data
 }
 
 function toRequest(request) {
@@ -286,7 +291,14 @@ function toResponse(response) {
 
     const {...outResponse} = response
 
-    outResponse.body = response.body ? resolveInputData(response.body) : {}
+    outResponse.body = response.body ? resolveInputData(response.body) : undefined
+
+    if (!outResponse.body) {
+        const template = resolveTemplate(response.schema)
+        const schema = resolveEntry(response.schema, template)
+
+        outResponse.body = toJsonMock(toSchemaType(template), schema)
+    }
 
     return outResponse
 }
@@ -351,7 +363,7 @@ function toGenerateConstants(generateConstants) {
         .map(constant => {
             return {
                 ...constant,
-                generated: typeGenerators.toRandomFromType(
+                generated: toRandomFromType(
                     constant.type,
                     constant.min,
                     constant.max,

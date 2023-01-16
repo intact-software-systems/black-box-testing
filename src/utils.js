@@ -1,4 +1,5 @@
 import {readFileSync} from 'https://deno.land/std@0.156.0/node/fs.ts'
+import {parse} from "https://deno.land/std@0.170.0/encoding/yaml.ts";
 
 function randomIban(countryCode, technicalOrgNum) {
     return countryCode + randomInteger(20, 90) + technicalOrgNum + randomInteger(1000000, 9999999)
@@ -126,7 +127,12 @@ export default {
     setWorkingDirectory: dir => workingDirectory = dir || '.',
 
     openFile: fileName => {
-        return JSON.parse(readFileSync(toPath(fileName)).toString())
+        const text = readFileSync(toPath(fileName)).toString()
+
+        if(fileName.endsWith(".yaml") || fileName.endsWith(".yml")) {
+            return parse(text)
+        }
+        return JSON.parse(text)
     },
 
     toReplace: (generate, replace) => {
@@ -140,5 +146,10 @@ export default {
         return generateReplace(generate || [], config || {})
     },
 
-    inputReplacesToJson: csv => inputReplacesToJson(csv)
+    inputReplacesToJson: csv => inputReplacesToJson(csv),
+
+    resolvePathData: (path, obj) => {
+        return path.split('.')
+            .reduce((prev, curr) => prev ? prev[curr] : null, obj || self)
+    }
 }
