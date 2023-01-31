@@ -1,0 +1,65 @@
+{
+  "headerTemplateFile": "./templates/led-server-http-header-template.json",
+  "replace": {
+    "url": "https://eos-led-server-d5.apps.os-global.finods.com/led/api/v1",
+    "reportUrl": "https://eos-led-reports--d5.apps.os-global.finods.com",
+    "bankOrgID": "3060",
+    "iban": "NO4430606107869"
+  },
+  "interactions": {
+    "systemDate": {
+      "request": {
+        "path": "{url}/test/systemdate/next/{bankOrgID}",
+        "method": "POST",
+        "output": "systemDate"
+      }
+    },
+    "eodOnAccount": {
+      "request": {
+        "path": "{url}/eod/accounts",
+        "method": "POST",
+        "body": {
+          "ibans": [
+            "{iban}"
+          ]
+        }
+      }
+    },
+    "findLedEodReport": {
+      "request": {
+        "input": [
+          "systemDate"
+        ],
+        "path": "{reportUrl}/find/D5/LED-EOD/{bankOrgID}/{systemDate.body.{bankOrgID}}",
+        "output": "findLedEodReport"
+      }
+    },
+    "findLedEodRsbReport": {
+      "request": {
+        "input": [
+          "systemDate"
+        ],
+        "path": "{reportUrl}/find/D5/LED-EOD-RSB/{bankOrgID}/{systemDate.body.{bankOrgID}}",
+        "output": "findLedEodRsbReport"
+      }
+    },
+    "readLedEodReport": {
+      "request": {
+        "input": [
+          "systemDate",
+          "findLedEodReport"
+        ],
+        "path": "{reportUrl}{findLedEodReport.body.urls.0}"
+      }
+    },
+    "readLedEodRsbReport": {
+      "request": {
+        "input": [
+          "systemDate",
+          "findLedEodRsbReport"
+        ],
+        "path": "{reportUrl}{findLedEodRsbReport.body.urls.0}"
+      }
+    }
+  }
+}

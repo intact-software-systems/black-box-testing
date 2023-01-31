@@ -2,7 +2,7 @@ import * as sync from './src/execute-black-box.js'
 import * as scenarioAlgorithms from './src/scenario-algorithm.js'
 import utils from './src/utils.js'
 
-import { Command } from 'https://deno.land/x/cmd@v1.2.0/commander/index.ts'
+import {Command} from 'command'
 
 const program = new Command()
 
@@ -38,10 +38,8 @@ const scenarioJson = scenarioAlgorithms.createScenarios(input)
 sync.executeBlackBox(scenarioJson, 0)
     .then(data => {
         console.log(JSON.stringify(data, null, 2))
-        return data
     })
     .catch(e => {
         console.log(e)
-        return e
     })
 

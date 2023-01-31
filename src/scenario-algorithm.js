@@ -7,6 +7,10 @@ function toTechnology(technology) {
 }
 
 function replaceData(target, config) {
+    if(target === undefined) {
+        return {}
+    }
+
     let returnTarget = target
     Object.keys(config)
         .forEach(key => {
@@ -91,7 +95,7 @@ function toInteraction(input) {
 
     Object.keys(input.requestTemplate)
         .forEach(key => {
-            if (input.generateAlways) {
+            if (input.generateAlways && input.generateAlways.length > 0) {
                 interaction.request[key] = replaceAlways(JSON.stringify(input.requestTemplate[key]), input.replace, input.generateAlways)
             }
             else {
@@ -101,7 +105,7 @@ function toInteraction(input) {
 
     Object.keys(input.responseTemplate)
         .forEach(key => {
-            if (input.generateAlways) {
+            if (input.generateAlways && input.generateAlways.length > 0) {
                 interaction.response[key] = replaceAlways(JSON.stringify(input.responseTemplate[key]), input.replace, input.generateAlways)
             }
             else {

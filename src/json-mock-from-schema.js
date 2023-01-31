@@ -1,11 +1,14 @@
-import toJsonSchema from 'npm:@openapi-contrib/openapi-schema-to-json-schema@latest'
-import jsf from 'npm:json-schema-faker@latest'
-// After fix use this one: import jsf from 'npm:json-schema-faker@latest/esm'
+// import toJsonSchema from 'npm:@openapi-contrib/openapi-schema-to-json-schema@latest'
+// import jsf from 'npm:json-schema-faker@latest'
 
-jsf.option({
-    useExamplesValue: true,
-    random: () => 0.000001
-})
+// import maps:
+//    "openapi-schema-to-json-schema": "npm:@openapi-contrib/openapi-schema-to-json-schema@latest",
+//    "json-schema-faker": "npm:json-schema-faker@latest"
+// After fix use this one: import jsf from 'npm:json-schema-faker@latest/esm'
+// jsf.option({
+//     useExamplesValue: true,
+//     random: () => 0.000001
+// })
 
 export const SchemaType = {
     OPENAPI: 'openapi',
@@ -16,6 +19,11 @@ export function toSchemaType(schema) {
     return schema.openapi ? SchemaType.OPENAPI : SchemaType.JSON
 }
 
+export function toJsonMock(type, schema) {
+    return undefined
+}
+
+/*
 export function toJsonMock(type, schema) {
     if (!schema) {
         return undefined
@@ -50,3 +58,4 @@ function toJsonMockFromOpenapi(schema) {
 function toJsonMockFromJsonSchema(schema) {
     return jsf.generate(schema)
 }
+*/

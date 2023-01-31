@@ -1,5 +1,5 @@
-import {readFileSync} from 'https://deno.land/std@0.156.0/node/fs.ts'
-import {parse} from "https://deno.land/std@0.170.0/encoding/yaml.ts";
+import {readFileSync} from 'fs'
+import {parse} from 'yaml'
 
 function randomIban(countryCode, technicalOrgNum) {
     return countryCode + randomInteger(20, 90) + technicalOrgNum + randomInteger(1000000, 9999999)
@@ -129,7 +129,7 @@ export default {
     openFile: fileName => {
         const text = readFileSync(toPath(fileName)).toString()
 
-        if(fileName.endsWith(".yaml") || fileName.endsWith(".yml")) {
+        if (fileName.endsWith('.yaml') || fileName.endsWith('.yml')) {
             return parse(text)
         }
         return JSON.parse(text)
