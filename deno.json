@@ -3,8 +3,5 @@
     "checkJs": true
   },
   "imports": {
-    "fs": "https://deno.land/std@0.175.0/node/fs.ts",
-    "yaml": "https://deno.land/std@0.175.0/encoding/yaml.ts",
-    "command": "https://deno.land/x/cmd@v1.2.0/commander/index.ts"
   }
 }

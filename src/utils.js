@@ -1,5 +1,5 @@
-import {readFileSync} from 'fs'
-import {parse} from 'yaml'
+import {readFileSync} from 'https://deno.land/std@0.175.0/node/fs.ts'
+import {parse} from 'https://deno.land/std@0.175.0/encoding/yaml.ts'
 
 function randomIban(countryCode, technicalOrgNum) {
     return countryCode + randomInteger(20, 90) + technicalOrgNum + randomInteger(1000000, 9999999)
