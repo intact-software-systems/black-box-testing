@@ -2,7 +2,7 @@ import * as sync from './src/execute-black-box.js'
 import * as scenarioAlgorithms from './src/scenario-algorithm.js'
 import utils from './src/utils.js'
 
-import {Command} from 'command'
+import {Command} from "https://deno.land/x/cmd@v1.2.0/commander/index.ts"
 
 const program = new Command()
 
