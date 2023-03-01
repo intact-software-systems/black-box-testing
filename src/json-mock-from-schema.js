@@ -16,7 +16,7 @@ export const SchemaType = {
 }
 
 export function toSchemaType(schema) {
-    return schema.openapi ? SchemaType.OPENAPI : SchemaType.JSON
+    return schema?.openapi ? SchemaType.OPENAPI : SchemaType.JSON
 }
 
 export function toJsonMock(type, schema) {
