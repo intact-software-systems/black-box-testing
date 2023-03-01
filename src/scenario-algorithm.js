@@ -264,7 +264,7 @@ function toHeaders(headerFile, headers, defaultHeaders) {
 function resolveTemplate(data) {
     return data?.templateFile
         ? utils.openFile(data.templateFile)
-        : data.template
+        : data?.template
 }
 
 function resolveEntry(data, template) {
