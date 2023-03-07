@@ -1,0 +1,45 @@
+{
+  "headerTemplateFile": "../http-header-template.json",
+  "replace": {
+    "url": "https://localhost:8080",
+    "reportUrl": "https://localhost:3000",
+    "bankOrgID": "3060"
+  },
+  "schedule": {
+  },
+  "runs": {
+    "LedEod": {
+      "start": {
+        "request": {
+          "path": "{url}/eod/banks",
+          "method": "POST",
+          "body": {
+            "technicalOrgNums": [
+              "{bankOrgID}"
+            ]
+          }
+        }
+      },
+      "progress": {
+        "numOfInteractions": "inf",
+        "interval": "1s",
+        "request": {
+          "path": "{url}/eod/banks/{bankOrgID}"
+        },
+        "response": {
+
+        }
+      }
+    }
+  },
+  "abort": {
+    "LedEod": {
+      "stop": {
+        "request": {
+          "path": "{url}/eod/banks/abort-all",
+          "method": "POST"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "headerTemplateFile": "../http-header-template.json",
+  "replace": {
+    "url": "https://eos-led-server-d5.apps.os-global.finods.com/led/api/v1",
+    "reportUrl": "https://eos-led-reports--d5.apps.os-global.finods.com",
+    "bankOrgID": "3060",
+    "iban": "NO4430606107869"
+  },
+  "interactions": {
+    "startLedEod": {
+      "request": {
+        "path": "{url}/eod/banks",
+        "method": "POST",
+        "body": {
+          "technicalOrgNums": [
+            "{bankOrgID}"
+          ]
+        }
+      }
+    },
+    "progressLedEod": {
+      "attempt": "until",
+      "interval": "1s",
+      "request": {
+        "path": "{url}/eod/banks/{bankOrgID}"
+      },
+      "response": {
+        "body": {
+
+        }
+      }
+    }
+  }
+}

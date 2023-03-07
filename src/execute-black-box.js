@@ -153,7 +153,7 @@ function fetchDataBasic(request) {
 }
 
 
-function executeInteraction(interactionWithConfig) {
+export function executeInteraction(interactionWithConfig) {
     const interaction = toNetworkInteraction(interactionWithConfig)
 
     if (!interaction) {

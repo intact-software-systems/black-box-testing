@@ -1,0 +1,5180 @@
+[
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 1,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/test/systemdate/set/2022-03-09",
+        "method": "POST",
+        "body": {},
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "{uuid}",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "statusCode": "200",
+        "body": {}
+      }
+    },
+    "systemDate": {
+      "entryName": "systemDate",
+      "templateFile": "../common-requests.json",
+      "replace": {
+        "systemDate": "2022-03-09"
+      }
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 1,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account",
+        "method": "POST",
+        "body": {
+          "currencyCode": "NOK",
+          "productId": "23456789012345678",
+          "productType": "CASA",
+          "agreementId": "23456789012345678",
+          "customerId": "93344151000",
+          "profitCenter": "03060",
+          "iban": "NO2466341278887468",
+          "countryCode": "NO",
+          "glDimension": [
+            {
+              "dimensionType": "SECTCODE",
+              "dimensionValue": "8500"
+            },
+            {
+              "dimensionType": "COUNTRY",
+              "dimensionValue": "NO"
+            },
+            {
+              "dimensionType": "BUSNCODE",
+              "dimensionValue": "0"
+            },
+            {
+              "dimensionType": "PRFTCNTR",
+              "dimensionValue": "03060"
+            },
+            {
+              "dimensionType": "MUNCCODE",
+              "dimensionValue": "3060"
+            }
+          ],
+          "interestTypes": [
+            {
+              "interestTypeCode": "LED_INTR_CRE",
+              "capitalisations": [
+                {
+                  "frequency": "MONTHLY",
+                  "isFrequencyOverridden": true,
+                  "capitalisationOnHolidayMethod": null,
+                  "firstIntermediateCapitalisationDate": null,
+                  "validFromDateIncl": "2022-01-01"
+                }
+              ],
+              "interestSubtypes": [
+                {
+                  "interestSubTypeCode": "BASE",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 1,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "AMOUNT",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                },
+                {
+                  "interestSubTypeCode": "TIER1",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 0.5,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "AMOUNT",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "interestTypeCode": "LED_INTR_LIN",
+              "capitalisations": [
+                {
+                  "frequency": "MONTHLY",
+                  "isFrequencyOverridden": true,
+                  "capitalisationOnHolidayMethod": null,
+                  "firstIntermediateCapitalisationDate": null,
+                  "validFromDateIncl": "2022-01-01"
+                }
+              ],
+              "interestSubtypes": [
+                {
+                  "interestSubTypeCode": "BASE",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 0,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "PERCENTAGE",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "interestTypeCode": "LED_INTR_ODR",
+              "capitalisations": [
+                {
+                  "frequency": "MONTHLY",
+                  "isFrequencyOverridden": true,
+                  "capitalisationOnHolidayMethod": null,
+                  "firstIntermediateCapitalisationDate": null,
+                  "validFromDateIncl": "2022-01-01"
+                }
+              ],
+              "interestSubtypes": [
+                {
+                  "interestSubTypeCode": "BASE",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 18,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "AMOUNT",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "{uuid}",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "statusCode": "201",
+        "body": {}
+      }
+    },
+    "openAccount": {
+      "numOfInteractions": 3,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account",
+          "method": "POST",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "openAccount"
+          }
+        },
+        "response": {
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "rateValidFromDateIncl": "2022-01-01"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "iban": "${iban[n]}"
+          }
+        }
+      }
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 2,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account",
+        "method": "POST",
+        "body": {
+          "currencyCode": "NOK",
+          "productId": "23456789012345678",
+          "productType": "CASA",
+          "agreementId": "23456789012345678",
+          "customerId": "93344151000",
+          "profitCenter": "03060",
+          "iban": "NO2666341274995398",
+          "countryCode": "NO",
+          "glDimension": [
+            {
+              "dimensionType": "SECTCODE",
+              "dimensionValue": "8500"
+            },
+            {
+              "dimensionType": "COUNTRY",
+              "dimensionValue": "NO"
+            },
+            {
+              "dimensionType": "BUSNCODE",
+              "dimensionValue": "0"
+            },
+            {
+              "dimensionType": "PRFTCNTR",
+              "dimensionValue": "03060"
+            },
+            {
+              "dimensionType": "MUNCCODE",
+              "dimensionValue": "3060"
+            }
+          ],
+          "interestTypes": [
+            {
+              "interestTypeCode": "LED_INTR_CRE",
+              "capitalisations": [
+                {
+                  "frequency": "MONTHLY",
+                  "isFrequencyOverridden": true,
+                  "capitalisationOnHolidayMethod": null,
+                  "firstIntermediateCapitalisationDate": null,
+                  "validFromDateIncl": "2022-01-01"
+                }
+              ],
+              "interestSubtypes": [
+                {
+                  "interestSubTypeCode": "BASE",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 1,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "AMOUNT",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                },
+                {
+                  "interestSubTypeCode": "TIER1",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 0.5,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "AMOUNT",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "interestTypeCode": "LED_INTR_LIN",
+              "capitalisations": [
+                {
+                  "frequency": "MONTHLY",
+                  "isFrequencyOverridden": true,
+                  "capitalisationOnHolidayMethod": null,
+                  "firstIntermediateCapitalisationDate": null,
+                  "validFromDateIncl": "2022-01-01"
+                }
+              ],
+              "interestSubtypes": [
+                {
+                  "interestSubTypeCode": "BASE",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 0,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "PERCENTAGE",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "interestTypeCode": "LED_INTR_ODR",
+              "capitalisations": [
+                {
+                  "frequency": "MONTHLY",
+                  "isFrequencyOverridden": true,
+                  "capitalisationOnHolidayMethod": null,
+                  "firstIntermediateCapitalisationDate": null,
+                  "validFromDateIncl": "2022-01-01"
+                }
+              ],
+              "interestSubtypes": [
+                {
+                  "interestSubTypeCode": "BASE",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 18,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "AMOUNT",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "{uuid}",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "statusCode": "201",
+        "body": {}
+      }
+    },
+    "openAccount": {
+      "numOfInteractions": 3,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account",
+          "method": "POST",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "openAccount"
+          }
+        },
+        "response": {
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "rateValidFromDateIncl": "2022-01-01"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "iban": "${iban[n]}"
+          }
+        }
+      }
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 3,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account",
+        "method": "POST",
+        "body": {
+          "currencyCode": "NOK",
+          "productId": "23456789012345678",
+          "productType": "CASA",
+          "agreementId": "23456789012345678",
+          "customerId": "93344151000",
+          "profitCenter": "03060",
+          "iban": "NO4366341279139149",
+          "countryCode": "NO",
+          "glDimension": [
+            {
+              "dimensionType": "SECTCODE",
+              "dimensionValue": "8500"
+            },
+            {
+              "dimensionType": "COUNTRY",
+              "dimensionValue": "NO"
+            },
+            {
+              "dimensionType": "BUSNCODE",
+              "dimensionValue": "0"
+            },
+            {
+              "dimensionType": "PRFTCNTR",
+              "dimensionValue": "03060"
+            },
+            {
+              "dimensionType": "MUNCCODE",
+              "dimensionValue": "3060"
+            }
+          ],
+          "interestTypes": [
+            {
+              "interestTypeCode": "LED_INTR_CRE",
+              "capitalisations": [
+                {
+                  "frequency": "MONTHLY",
+                  "isFrequencyOverridden": true,
+                  "capitalisationOnHolidayMethod": null,
+                  "firstIntermediateCapitalisationDate": null,
+                  "validFromDateIncl": "2022-01-01"
+                }
+              ],
+              "interestSubtypes": [
+                {
+                  "interestSubTypeCode": "BASE",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 1,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "AMOUNT",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                },
+                {
+                  "interestSubTypeCode": "TIER1",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 0.5,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "AMOUNT",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "interestTypeCode": "LED_INTR_LIN",
+              "capitalisations": [
+                {
+                  "frequency": "MONTHLY",
+                  "isFrequencyOverridden": true,
+                  "capitalisationOnHolidayMethod": null,
+                  "firstIntermediateCapitalisationDate": null,
+                  "validFromDateIncl": "2022-01-01"
+                }
+              ],
+              "interestSubtypes": [
+                {
+                  "interestSubTypeCode": "BASE",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 0,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "PERCENTAGE",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "interestTypeCode": "LED_INTR_ODR",
+              "capitalisations": [
+                {
+                  "frequency": "MONTHLY",
+                  "isFrequencyOverridden": true,
+                  "capitalisationOnHolidayMethod": null,
+                  "firstIntermediateCapitalisationDate": null,
+                  "validFromDateIncl": "2022-01-01"
+                }
+              ],
+              "interestSubtypes": [
+                {
+                  "interestSubTypeCode": "BASE",
+                  "interestSubTypeVariant": "STANDARD",
+                  "rates": [
+                    {
+                      "rate": 18,
+                      "validFromDateIncl": "2022-01-01",
+                      "isOverridden": false,
+                      "tierThresholdIncl": 0,
+                      "calculationThresholdIncl": 0,
+                      "thresholdValueType": "AMOUNT",
+                      "numerator": "CAL",
+                      "denominator": "CAL",
+                      "referenceInformation": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "{uuid}",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "statusCode": "201",
+        "body": {}
+      }
+    },
+    "openAccount": {
+      "numOfInteractions": 3,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account",
+          "method": "POST",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "openAccount"
+          }
+        },
+        "response": {
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "rateValidFromDateIncl": "2022-01-01"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "iban": "${iban[n]}"
+          }
+        }
+      }
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 1,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account/transaction",
+        "method": "PUT",
+        "body": [
+          {
+            "iban": "NO2466341278887468",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-27",
+                "transactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "e473616e-aa2f-45f4-bd23-8d4518d5cbae",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-27",
+                "transactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "965bdb16-b444-4c7a-91ea-d71c0b16f9e8",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO2666341274995398",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-27",
+                "transactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "f16616d6-2d0b-4f2b-b397-9251be9b7c37",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-27",
+                "transactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO4366341279139149",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-27",
+                "transactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "a9a6c9df-01bc-42f6-ab47-67c7cb9c1997",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-27",
+                "transactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "432.061",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "010e7376-1656-424e-a005-c201adebc302",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "body": {
+          "ACCEPTED": [
+            {
+              "iban": "NO2466341278887468",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "status": "CREATED"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO2666341274995398",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO4366341279139149",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            }
+          ]
+        },
+        "statusCode": "201"
+      }
+    },
+    "postTransactions": {
+      "numOfInteractions": 10,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account/transaction",
+          "method": "PUT",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsRequest"
+          }
+        },
+        "response": {
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsResponse"
+          },
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "uuid2Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+        "uuid3Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f22"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "valueDateTransaction": "${transactionDate[n]}",
+            "transactionAmount": "${transactionAmount[n]}",
+            "iban1": "${iban[1]}",
+            "iban2": "${iban[2]}",
+            "iban3": "${iban[3]}"
+          }
+        }
+      },
+      "generateAlways": [
+        "uuid"
+      ]
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 2,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account/transaction",
+        "method": "PUT",
+        "body": [
+          {
+            "iban": "NO2466341278887468",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-13",
+                "transactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "c627d6a8-edff-496f-ae01-216d4708d906",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-13",
+                "transactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "982862df-b5e4-419e-a942-8004698a7bf1",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO2666341274995398",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-13",
+                "transactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "6b91058d-7285-4c48-8ec3-a02498277e78",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-13",
+                "transactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO4366341279139149",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-13",
+                "transactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "d1c32ca7-19f4-44d5-acfa-9e4f5d6ba861",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-13",
+                "transactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "299.49",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "5634ecd4-7824-49dd-94e3-a159625eb328",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "body": {
+          "ACCEPTED": [
+            {
+              "iban": "NO2466341278887468",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "status": "CREATED"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO2666341274995398",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO4366341279139149",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            }
+          ]
+        },
+        "statusCode": "201"
+      }
+    },
+    "postTransactions": {
+      "numOfInteractions": 10,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account/transaction",
+          "method": "PUT",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsRequest"
+          }
+        },
+        "response": {
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsResponse"
+          },
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "uuid2Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+        "uuid3Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f22"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "valueDateTransaction": "${transactionDate[n]}",
+            "transactionAmount": "${transactionAmount[n]}",
+            "iban1": "${iban[1]}",
+            "iban2": "${iban[2]}",
+            "iban3": "${iban[3]}"
+          }
+        }
+      },
+      "generateAlways": [
+        "uuid"
+      ]
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 3,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account/transaction",
+        "method": "PUT",
+        "body": [
+          {
+            "iban": "NO2466341278887468",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-06",
+                "transactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "8e245b28-a0fc-4678-a9fa-5fd0aa1efe74",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-06",
+                "transactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "4194ab9d-79bf-4610-9c18-96e3eecc0234",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO2666341274995398",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-06",
+                "transactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "2bfe6b5b-9526-4ee5-804d-0253ec8aad39",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-06",
+                "transactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO4366341279139149",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-06",
+                "transactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "6e963424-c588-4ed3-8628-b8f2a8db30e2",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-06",
+                "transactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "83.465",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "01f1f4a4-86e0-4612-ac75-ec611fe9e03b",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "body": {
+          "ACCEPTED": [
+            {
+              "iban": "NO2466341278887468",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "status": "CREATED"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO2666341274995398",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO4366341279139149",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            }
+          ]
+        },
+        "statusCode": "201"
+      }
+    },
+    "postTransactions": {
+      "numOfInteractions": 10,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account/transaction",
+          "method": "PUT",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsRequest"
+          }
+        },
+        "response": {
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsResponse"
+          },
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "uuid2Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+        "uuid3Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f22"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "valueDateTransaction": "${transactionDate[n]}",
+            "transactionAmount": "${transactionAmount[n]}",
+            "iban1": "${iban[1]}",
+            "iban2": "${iban[2]}",
+            "iban3": "${iban[3]}"
+          }
+        }
+      },
+      "generateAlways": [
+        "uuid"
+      ]
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 4,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account/transaction",
+        "method": "PUT",
+        "body": [
+          {
+            "iban": "NO2466341278887468",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-04-17",
+                "transactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "eb297168-5278-412a-a635-b8edbfeecea5",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-04-17",
+                "transactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "3f82404c-beae-4f52-a972-d6d2bcea5fe4",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO2666341274995398",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-04-17",
+                "transactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "4e528945-ff5b-4b52-852d-ad731589cde3",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-04-17",
+                "transactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO4366341279139149",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-04-17",
+                "transactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "0057e975-c48b-4747-885d-f317d018a015",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-04-17",
+                "transactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "941.161",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "67ca0832-789c-4c15-bd76-ce06344d8666",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "body": {
+          "ACCEPTED": [
+            {
+              "iban": "NO2466341278887468",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "status": "CREATED"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO2666341274995398",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO4366341279139149",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            }
+          ]
+        },
+        "statusCode": "201"
+      }
+    },
+    "postTransactions": {
+      "numOfInteractions": 10,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account/transaction",
+          "method": "PUT",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsRequest"
+          }
+        },
+        "response": {
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsResponse"
+          },
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "uuid2Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+        "uuid3Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f22"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "valueDateTransaction": "${transactionDate[n]}",
+            "transactionAmount": "${transactionAmount[n]}",
+            "iban1": "${iban[1]}",
+            "iban2": "${iban[2]}",
+            "iban3": "${iban[3]}"
+          }
+        }
+      },
+      "generateAlways": [
+        "uuid"
+      ]
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 5,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account/transaction",
+        "method": "PUT",
+        "body": [
+          {
+            "iban": "NO2466341278887468",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-02-21",
+                "transactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "e94d2d29-868c-4957-a27a-b32097758853",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-02-21",
+                "transactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "17e76395-c62b-40b0-a380-a226b5225a6c",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO2666341274995398",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-02-21",
+                "transactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "d7dd0982-bce8-4c20-b882-6984e410f0c7",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-02-21",
+                "transactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO4366341279139149",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-02-21",
+                "transactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "913510a2-8754-40da-805e-a9634c45edda",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-02-21",
+                "transactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "50.25",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "a57f11f3-12c2-43ff-a8ce-90b98580d0ea",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "body": {
+          "ACCEPTED": [
+            {
+              "iban": "NO2466341278887468",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "status": "CREATED"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO2666341274995398",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO4366341279139149",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            }
+          ]
+        },
+        "statusCode": "201"
+      }
+    },
+    "postTransactions": {
+      "numOfInteractions": 10,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account/transaction",
+          "method": "PUT",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsRequest"
+          }
+        },
+        "response": {
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsResponse"
+          },
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "uuid2Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+        "uuid3Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f22"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "valueDateTransaction": "${transactionDate[n]}",
+            "transactionAmount": "${transactionAmount[n]}",
+            "iban1": "${iban[1]}",
+            "iban2": "${iban[2]}",
+            "iban3": "${iban[3]}"
+          }
+        }
+      },
+      "generateAlways": [
+        "uuid"
+      ]
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 6,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account/transaction",
+        "method": "PUT",
+        "body": [
+          {
+            "iban": "NO2466341278887468",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-25",
+                "transactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "df888167-0b51-4810-b3f8-4e3006653ff7",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-25",
+                "transactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "13e95ce9-9b93-4663-a3f3-9d7ce3c98d99",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO2666341274995398",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-25",
+                "transactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "4611e07b-33d1-4f38-9d11-22c6fe21fd02",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-25",
+                "transactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO4366341279139149",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-25",
+                "transactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "ea9df073-0bb7-4dc1-bc8b-2e0d8af98e87",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-25",
+                "transactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "437.117",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "282685fe-9ca0-4270-bdd9-1918cd35e8db",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "body": {
+          "ACCEPTED": [
+            {
+              "iban": "NO2466341278887468",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "status": "CREATED"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO2666341274995398",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO4366341279139149",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            }
+          ]
+        },
+        "statusCode": "201"
+      }
+    },
+    "postTransactions": {
+      "numOfInteractions": 10,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account/transaction",
+          "method": "PUT",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsRequest"
+          }
+        },
+        "response": {
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsResponse"
+          },
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "uuid2Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+        "uuid3Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f22"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "valueDateTransaction": "${transactionDate[n]}",
+            "transactionAmount": "${transactionAmount[n]}",
+            "iban1": "${iban[1]}",
+            "iban2": "${iban[2]}",
+            "iban3": "${iban[3]}"
+          }
+        }
+      },
+      "generateAlways": [
+        "uuid"
+      ]
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 7,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account/transaction",
+        "method": "PUT",
+        "body": [
+          {
+            "iban": "NO2466341278887468",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-12",
+                "transactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "319c69f2-e146-49b1-9f69-e390bf22e6f1",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-12",
+                "transactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "61fbd9f4-b32c-4068-be08-cfdd2e637142",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO2666341274995398",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-12",
+                "transactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "fed38841-b016-426e-b95f-ec2eb3da13b8",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-12",
+                "transactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO4366341279139149",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-12",
+                "transactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "79a663e4-4885-44bb-8d01-ba247c502ed5",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-05-12",
+                "transactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "361.175",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "5bca695f-bc73-4ec9-ac0f-0bb9cc588e29",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "body": {
+          "ACCEPTED": [
+            {
+              "iban": "NO2466341278887468",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "status": "CREATED"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO2666341274995398",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO4366341279139149",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            }
+          ]
+        },
+        "statusCode": "201"
+      }
+    },
+    "postTransactions": {
+      "numOfInteractions": 10,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account/transaction",
+          "method": "PUT",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsRequest"
+          }
+        },
+        "response": {
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsResponse"
+          },
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "uuid2Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+        "uuid3Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f22"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "valueDateTransaction": "${transactionDate[n]}",
+            "transactionAmount": "${transactionAmount[n]}",
+            "iban1": "${iban[1]}",
+            "iban2": "${iban[2]}",
+            "iban3": "${iban[3]}"
+          }
+        }
+      },
+      "generateAlways": [
+        "uuid"
+      ]
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 8,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account/transaction",
+        "method": "PUT",
+        "body": [
+          {
+            "iban": "NO2466341278887468",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-23",
+                "transactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "3fab1cf9-df39-4679-910b-2e4c6a6e78d5",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-23",
+                "transactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "63e80a64-2ac8-402a-b8e8-ee47859a6d8f",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO2666341274995398",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-23",
+                "transactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "91556403-e641-48d8-96b6-51de3c146ee1",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-23",
+                "transactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO4366341279139149",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-23",
+                "transactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "29595da0-ea9a-4fa4-a5fa-3e5a4374e63a",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-03-23",
+                "transactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "853.021",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "81b31529-fb5a-428d-98e2-1659cd94d60f",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "body": {
+          "ACCEPTED": [
+            {
+              "iban": "NO2466341278887468",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "status": "CREATED"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO2666341274995398",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO4366341279139149",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            }
+          ]
+        },
+        "statusCode": "201"
+      }
+    },
+    "postTransactions": {
+      "numOfInteractions": 10,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account/transaction",
+          "method": "PUT",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsRequest"
+          }
+        },
+        "response": {
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsResponse"
+          },
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "uuid2Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+        "uuid3Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f22"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "valueDateTransaction": "${transactionDate[n]}",
+            "transactionAmount": "${transactionAmount[n]}",
+            "iban1": "${iban[1]}",
+            "iban2": "${iban[2]}",
+            "iban3": "${iban[3]}"
+          }
+        }
+      },
+      "generateAlways": [
+        "uuid"
+      ]
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 9,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account/transaction",
+        "method": "PUT",
+        "body": [
+          {
+            "iban": "NO2466341278887468",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "42e544db-5cfc-4104-bb0b-cfbf225242db",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "bd6c7b32-ec8f-4d7d-a783-6a5df6a8b17f",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO2666341274995398",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "ae7ba3c6-b5a6-42b4-b2a5-5521cf7d3dd9",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO4366341279139149",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "97315add-d901-420e-a992-9f55f5fd4d7f",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "5fd43e70-92f8-4de0-b355-01c3cd53a1b7",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "body": {
+          "ACCEPTED": [
+            {
+              "iban": "NO2466341278887468",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "status": "CREATED"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO2666341274995398",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO4366341279139149",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            }
+          ]
+        },
+        "statusCode": "201"
+      }
+    },
+    "postTransactions": {
+      "numOfInteractions": 10,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account/transaction",
+          "method": "PUT",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsRequest"
+          }
+        },
+        "response": {
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsResponse"
+          },
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "uuid2Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+        "uuid3Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f22"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "valueDateTransaction": "${transactionDate[n]}",
+            "transactionAmount": "${transactionAmount[n]}",
+            "iban1": "${iban[1]}",
+            "iban2": "${iban[2]}",
+            "iban3": "${iban[3]}"
+          }
+        }
+      },
+      "generateAlways": [
+        "uuid"
+      ]
+    }
+  },
+  {
+    "HTTP": {
+      "request": {
+        "interactionExecutionNumber": 10,
+        "scenarioExecutionNumber": 1,
+        "path": "http://127.0.0.1:8080/led/api/v1/account/transaction",
+        "method": "PUT",
+        "body": [
+          {
+            "iban": "NO2466341278887468",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "202a4b5f-9b54-45e9-abfc-c02ebbf756a1",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "c4d1138f-9ce3-4e02-8e5e-f035c8fc4e34",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO2666341274995398",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "8e1136ff-0868-43d9-b4d2-d6b1cfa4c763",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "iban": "NO4366341279139149",
+            "requests": [
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "2f74c100-b9ef-4f57-93ad-72bf01f2d8bf",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txref"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              },
+              {
+                "domain": "CARD",
+                "family": "CCRD",
+                "subFamily": "POSD",
+                "valueDate": "2022-01-27",
+                "transactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "localTransactionAmount": {
+                  "amount": "879.139",
+                  "currency": "NOK"
+                },
+                "productCode": "CARINTVISA",
+                "productCodeIssuer": "PIPC",
+                "proprietaryCode": "014",
+                "proprietaryCodeIssuer": "ETXC",
+                "originatorBank": "3060",
+                "externalTxReference": "Test trans",
+                "transactionComment": "Test transaction",
+                "counterAccount": "20954433677",
+                "businessSystemId": "TST",
+                "ledgerSyncId": "1",
+                "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                "confirmationId": "confirmationId",
+                "reconciliation": {
+                  "key": "TEST_D",
+                  "date": "2022-03-09"
+                },
+                "references": [
+                  {
+                    "type": "NUMREF",
+                    "value": "00185550952"
+                  },
+                  {
+                    "type": "TXREF",
+                    "value": "txRef"
+                  },
+                  {
+                    "type": "ETOEREF",
+                    "value": "Test D5"
+                  },
+                  {
+                    "type": "ARCHREF",
+                    "value": "Test ARCHREF"
+                  },
+                  {
+                    "type": "TXID",
+                    "value": "CARD"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Language": "no",
+          "x-evry-organization-country-code-alpha2": "NO",
+          "x-evry-organization-bank-local-currency": "NOK",
+          "x-evry-organization-id": "049890976193784678",
+          "X-EVRY-SO": "03111013010400425Xnjwu7XwmvXpDVWkiIsmL460iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxjrSIpQnXuqKD/MjoNuGS8VZBiBYiCbakYwjWkkXKTPiwOF0ie2cBUbhnX94tjF9QjrSIpQnXuqKD/MjoNuGS8Y60iKUJ17qig/zI6DbhkvGOtIilCde6ooP8yOg24ZLxvVmCPT+hSeuu3PPAmkIda/Pc6HDnQ7BdY6V9U5STqL8=oQ1G01zmbar+uwSAil4eGUYst5dHF2u2WZDW2vSl3XFY5GYU+k3nRjwndp7YeC/7olRYrKSE3mv6EWdEvhYWer/2gskC1XgLDuaWopLmpDPgEK4cMlh3F31r+w6M5nseyHM3ppWvl8/u6mgJ3x5kCM9LaDV0tY9EtJMWDjjFhZY=",
+          "X-EVRY-USERID": "aTestTool",
+          "X-EVRY-USERORGID": "2096",
+          "X-EVRY-DATAOWNERORGID": "2096",
+          "X-EVRY-ORIGIN": "LED",
+          "X-EVRY-CLIENT-REQUESTID": "ae0a4f08-50e1-4e51-9231-9fb8332a2345",
+          "X-EVRY-USER-IPADDRESS": "127.0.0.1",
+          "X-EVRY-AGREEMENTID": "05047120141",
+          "X-EVRY-CUSTOMERID": "05047120141",
+          "X-EVRY-CHANNEL": "INT",
+          "x-evry-esb-usersession": "{\"authLevel\":\"2\", \"bankOrgID\":\"2096\", \"client\":{\"ip\":\"127.0.0.1\", \"userAgent\":\"soapUI\"}, \"sessionID\":\"ipY-R_OLbu50WpfCfQKOCO_\",\"userID\":\"aTestTool\"}",
+          "x-evry-esb-securitytoken": "{\"tokenType\":\"EvrySO\", \"token\":\"03111012010400425HK1mhgx5ebF6OVtVL1neI9CfuAtjCBO603eS0IgWm1WWIO7EfpSL4DE%2FlDFi69n1sSaabKNt2t%2BxJppso23a37EmmmyjbdrfLhDLrH4G0bip4OgJFr19UE%2Bt0RA6vQQ%2BsSaabKNt2t%2FXzlyjxYnxhcG46wcbIKp%2FsSaabKNt2t9wBUG0SyIoqFfig80Gq4uXVBtimDzTiu3EfQIWD5xMfhsbDu83H0lmDXcuWUsP7RU%3DJWuJYJZFG3e4Y87y4X9%2BbJQIQq4zYzMAMU6%2BedVRHOhxY5LmhdwLjmJJNXJf9p5RgbJIhznf2zUy83gLRUsP%2FZ6CQ4%2F2vVDI8xGvs6CPoo8IYBzYaUgZ7syfa2NDKgtfwnIwfonn3YS5lRneDUokzJiiMXcPVrQ1ZoGeSBMkrTo%3D\"}",
+          "x-evry-client-clientname": "INT"
+        }
+      },
+      "response": {
+        "body": {
+          "ACCEPTED": [
+            {
+              "iban": "NO2466341278887468",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "status": "CREATED"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO2666341274995398",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            },
+            {
+              "iban": "NO4366341279139149",
+              "agreementId": "23456789012345678",
+              "productId": "23456789012345678",
+              "currencyCode": "NOK",
+              "productType": "CASA",
+              "transactionsProcessed": [
+                {
+                  "tgId": "1ba70357-bedd-412d-bfba-cc13cf237f22",
+                  "status": "OK"
+                },
+                {
+                  "status": "CREATED"
+                }
+              ]
+            }
+          ]
+        },
+        "statusCode": "201"
+      }
+    },
+    "postTransactions": {
+      "numOfInteractions": 10,
+      "HTTP": {
+        "request": {
+          "path": "{url}/account/transaction",
+          "method": "PUT",
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsRequest"
+          }
+        },
+        "response": {
+          "body": {
+            "templateFile": "./data.json",
+            "entryName": "postTransactionsResponse"
+          },
+          "statusCode": "201"
+        }
+      },
+      "replace": {
+        "uuid2Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f21",
+        "uuid3Repeat": "1ba70357-bedd-412d-bfba-cc13cf237f22"
+      },
+      "replaceRules": {
+        ">1": {
+          "replace": {
+            "valueDateTransaction": "${transactionDate[n]}",
+            "transactionAmount": "${transactionAmount[n]}",
+            "iban1": "${iban[1]}",
+            "iban2": "${iban[2]}",
+            "iban3": "${iban[3]}"
+          }
+        }
+      },
+      "generateAlways": [
+        "uuid"
+      ]
+    }
+  }
+]

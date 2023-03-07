@@ -1,0 +1,46 @@
+{
+  "step1": {
+    "execution": "sequential",
+    "scheduleStart": "time",
+
+    "adminOperations": {
+      "abort": {
+        "fileName": "batch-abort-config.json"
+      }
+    },
+
+    "run": [
+      {
+        "name": "LedEod",
+        "scheduleEarliestStart": "time",
+        "fileName": "batch-led-eod-config.json"
+      },
+      {
+        "name": "URI",
+        "scheduleEarliestStart": "time",
+        "fileName": "batch-uri-config.json"
+      }
+    ]
+  },
+  "step2": {
+    "execution": "parallel",
+    "scheduleStart": "time",
+
+    "adminOperations": {
+      "abort": {
+        "fileName": "batch-abort-config.json"
+      }
+    },
+
+    "run": [
+      {
+        "name": "LedEod",
+        "fileName": "batch-led-eod-config.json"
+      },
+      {
+        "name": "URI",
+        "fileName": "batch-uri-config.json"
+      }
+    ]
+  }
+}
