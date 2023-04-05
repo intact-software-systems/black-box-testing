@@ -7,7 +7,7 @@ function toTechnology(technology) {
 }
 
 function replaceData(target, config) {
-    if(target === undefined) {
+    if (target === undefined) {
         return {}
     }
 
@@ -59,6 +59,10 @@ function findReplaceRule(replaceRules, i, numOf) {
 }
 
 function replaceAlways(target, replace, generateAlways) {
+    if (!target) {
+        return target
+    }
+
     const config = {
         ...replace,
         ...utils.generateReplace(generateAlways, replace)
