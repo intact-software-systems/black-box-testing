@@ -89,12 +89,12 @@ function isIdenticalArrays(a, b) {
     return toCompatible()
 }
 
-function isCompatibleObjects(expected, actual, compareValues = true, compareExact = false) {
+function isCompatibleObjects(expected, actual, config) {
     if (Array.isArray(expected)) {
-        return isCompatibleArrays(expected, actual, compareValues, compareExact)
+        return isCompatibleArrays(expected, actual, config)
     }
 
-    if (compareExact) {
+    if (config.compareExact) {
         const compatibilityMessage = isIdenticalArrays(Object.keys(expected), Object.keys(actual))
         if (!compatibilityMessage.isEqual) {
             return compatibilityMessage
@@ -103,13 +103,17 @@ function isCompatibleObjects(expected, actual, compareValues = true, compareExac
 
     for (const key of Object.keys(expected)) {
 
+        if (config.ignoreJsonKeys.includes(key)) {
+            continue
+        }
+
         if (expected[key] instanceof Object) {
 
             if (!(actual[key] instanceof Object)) {
                 return toNotCompatible(expected, actual, '!(' + actual[key] + ') instanceof Object')
             }
 
-            let compatibleObjects = isCompatibleObjects(expected[key], actual[key], compareValues, compareExact)
+            let compatibleObjects = isCompatibleObjects(expected[key], actual[key], config)
             if (!compatibleObjects.isEqual) {
                 return compatibleObjects
             }
@@ -120,7 +124,7 @@ function isCompatibleObjects(expected, actual, compareValues = true, compareExac
                 return toNotCompatible(expected, actual, '!Array.isArray(' + actual[key] + ')')
             }
 
-            let compatibleArrays = isCompatibleArrays(expected[key], actual[key], compareValues, compareExact)
+            let compatibleArrays = isCompatibleArrays(expected[key], actual[key], config)
             if (!compatibleArrays.isEqual) {
                 return compatibleArrays
             }
@@ -131,7 +135,7 @@ function isCompatibleObjects(expected, actual, compareValues = true, compareExac
                 return toNotCompatible(expected, actual, '!' + actual + '.hasOwnProperty(' + key + ')')
             }
 
-            if (compareValues && !isValueEqual(expected[key], actual[key], compareExact)) {
+            if (config.compareValues && !isValueEqual(expected[key], actual[key], config.compareExact)) {
                 return toNotCompatible(expected, actual, '!isValueEqual(' + expected[key] + ', ' + actual[key] + ')')
             }
         }
@@ -139,7 +143,7 @@ function isCompatibleObjects(expected, actual, compareValues = true, compareExac
     return toCompatible()
 }
 
-function isCompatibleArrays(expected, actual, compareValues = true, compareExact = false) {
+function isCompatibleArrays(expected, actual, config) {
     if (!Array.isArray(actual)) {
         return toNotCompatible(expected, actual, 'expected array was object')
     }
@@ -161,13 +165,13 @@ function isCompatibleArrays(expected, actual, compareValues = true, compareExact
             const actualValue = actualToCompare[j]
 
             if (Array.isArray(expectedValue)) {
-                let compatibilityMessage = isCompatibleArrays(expectedValue, actualValue, compareValues, compareExact)
+                let compatibilityMessage = isCompatibleArrays(expectedValue, actualValue, config)
                 if (!compatibilityMessage.isEqual) {
                     return compatibilityMessage
                 }
             }
             else {
-                let compatibilityMessage = isCompatibleObjects(expectedValue, actualValue, compareValues, compareExact)
+                let compatibilityMessage = isCompatibleObjects(expectedValue, actualValue, config)
                 if (compatibilityMessage.isEqual) {
                     expectedFound.push(expectedValue)
                     actualToCompare[j] = undefined
@@ -177,7 +181,7 @@ function isCompatibleArrays(expected, actual, compareValues = true, compareExact
         }
     }
 
-    if (compareExact) {
+    if (config.compareExact) {
         const actualNotFound = actualToCompare.filter(a => a !== undefined)
         if (actualNotFound.length > 0) {
             return toNotCompatible(expected, actual, 'Json structures not exact equals', {
@@ -188,7 +192,7 @@ function isCompatibleArrays(expected, actual, compareValues = true, compareExact
         }
     }
 
-    if (compareValues) {
+    if (config.compareValues) {
         return expectedFound.length === expected.length
             ? toCompatible()
             : toNotCompatible(expected, actual, 'Json structures not compatible', {
@@ -210,28 +214,10 @@ function isCompatibleArrays(expected, actual, compareValues = true, compareExact
     }
 }
 
-function isJsonStructureCompatible(expected, actual) {
+export function compareJson(expected, actual, config) {
     return Array.isArray(expected)
-        ? isCompatibleArrays(expected, actual, false, false)
-        : isCompatibleObjects(expected, actual, false, false)
-}
-
-function isJsonCompatible(expected, actual) {
-    return Array.isArray(expected)
-        ? isCompatibleArrays(expected, actual, true, false)
-        : isCompatibleObjects(expected, actual, true, false)
-}
-
-function isJsonStructureExact(expected, actual) {
-    return Array.isArray(expected)
-        ? isCompatibleArrays(expected, actual, false, true)
-        : isCompatibleObjects(expected, actual, false, true)
-}
-
-function isJsonIdentical(expected, actual) {
-    return Array.isArray(expected)
-        ? isCompatibleArrays(expected, actual, true, true)
-        : isCompatibleObjects(expected, actual, true, true)
+        ? isCompatibleArrays(expected, actual, config)
+        : isCompatibleObjects(expected, actual, config)
 }
 
 export const COMPARISON = {
@@ -241,20 +227,30 @@ export const COMPARISON = {
     EXACT: 'exact'
 }
 
-export function compareJson(expected, actual, comparison) {
+export function toConfig(comparison, ignoreJsonKeys, ignoreJsonPaths, allValuePaths) {
     switch (comparison.toLowerCase()) {
         case COMPARISON.COMPATIBLE_STRUCTURE:
-            return isJsonStructureCompatible(expected, actual)
+            return toConfigDto(false, false, ignoreJsonKeys, ignoreJsonPaths, allValuePaths)
         case COMPARISON.COMPATIBLE:
-            return isJsonCompatible(expected, actual)
+            return toConfigDto(true, false, ignoreJsonKeys, ignoreJsonPaths, allValuePaths)
         case COMPARISON.EXACT_STRUCTURE:
-            return isJsonStructureExact(expected, actual)
+            return toConfigDto(false, true, ignoreJsonKeys, ignoreJsonPaths, allValuePaths)
         case COMPARISON.EXACT:
-            return isJsonIdentical(expected, actual)
+            return toConfigDto(true, true, ignoreJsonKeys, ignoreJsonPaths, allValuePaths)
         default:
             throw {
                 error: 'Comparison unsupported: ' + comparison.toLowerCase(),
                 comparisons: COMPARISON
             }
+    }
+}
+
+function toConfigDto(compareValues, compareExact, ignoreJsonKeys, ignoreJsonPaths, allValuePaths) {
+    return {
+        compareValues,
+        compareExact,
+        ignoreJsonKeys,
+        ignoreJsonPaths,
+        allValuePaths
     }
 }

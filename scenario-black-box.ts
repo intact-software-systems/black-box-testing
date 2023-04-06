@@ -39,10 +39,9 @@ const scenarioJson = scenarioAlgorithms.createScenarios(input)
 
 if (program.opts().execution && program.opts().execution.toLowerCase().includes('dry')) {
     console.log(JSON.stringify(scenarioJson, null, 2))
-
 }
 else {
-    sync.executeBlackBox(scenarioJson, 0)
+    sync.executeBlackBox(scenarioJson.flatMap(a => a), 0)
         .then(data => {
             console.log(JSON.stringify(data, null, 2))
         })

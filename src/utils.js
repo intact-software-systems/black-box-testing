@@ -123,6 +123,44 @@ function toPath(name) {
     return workingDirectory + '/' + name
 }
 
+function getValuePaths(currPath, item, valuePaths = []) {
+    if (!Array.isArray(item) && typeof item !== 'object')
+        valuePaths.push(currPath)
+
+    if (Array.isArray(item)) {
+        item.forEach((el, idx) => getValuePaths(`${currPath}.${idx}`, el, valuePaths))
+    }
+    else if (item && typeof item === 'object') {
+        Object.entries(item)
+            .forEach(([key, value]) => {
+                getValuePaths(`${currPath}.${key}`, value, valuePaths)
+            })
+    }
+    return valuePaths
+}
+
+export function getAllValuePaths(data) {
+    return Object.entries(data)
+        .map(([key, value]) => {
+            return [...new Set([key, ...getValuePaths(key, value)])]
+        })
+        .flatMap(a => a)
+}
+
+export async function loadJsonFile(fileName) {
+    return await import (
+        fileName,
+        {
+            assert: {type: 'json'}
+        }
+        )
+        .then(a => a.default)
+        .catch(e => {
+            console.error(e)
+            return {}
+        })
+}
+
 export default {
     setWorkingDirectory: dir => workingDirectory = dir || '.',
 

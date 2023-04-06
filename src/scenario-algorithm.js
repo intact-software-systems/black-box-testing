@@ -431,7 +431,6 @@ function toInteractionsWithConfig(input, scenarios) {
                 .flatMap(a => a)
         })
         .flatMap(a => a)
-        .flatMap(a => a)
 }
 
 export function createScenarios(input) {

@@ -82,7 +82,7 @@ function toRandomDayInMonth(month, min, max) {
     return toRandomInteger(1, 12)
 }
 
-function toRandomDate(min, max) {
+function toRandomDateTimeIsoString(min, max) {
     if (max === 'now') {
         max = new Date(Date.now())
             .toISOString()
@@ -91,15 +91,14 @@ function toRandomDate(min, max) {
 
     const year = toRandomYear(min, max)
     const month = toRandomMonthInYear(year, min, max)
-    let day = toRandomDayInMonth(month, min, max)
+    const day = toRandomDayInMonth(month, min, max)
 
     return new Date(year, month - 1, day)
         .toISOString()
-        .slice(0, 10)
 }
 
 function toRandomFloat(min, max, decimals) {
-    let num = Math.random() * (max - min) + min
+    const num = Math.random() * (max - min) + min
     return roundToDecimals(num, decimals || 2)
 }
 
@@ -135,7 +134,21 @@ function toRandomFloats(min, max, numberOf, decimals) {
 function toRandomDates(min, max, numberOf) {
     return new Array(numberOf)
         .fill(0)
-        .map(() => toRandomDate(min, max))
+        .map(() => {
+            const dateTimeAsString = toRandomDateTimeIsoString(min, max)
+            return dateTimeAsString
+                .slice(0, 10)
+        })
+}
+
+function toRandomDateTimes(min, max, numberOf) {
+    return new Array(numberOf)
+        .fill(0)
+        .map(() => {
+            const dateTimeAsString = toRandomDateTimeIsoString(min, max)
+            return dateTimeAsString
+                .slice(0, dateTimeAsString.length - 1)
+        })
 }
 
 function toUuids(numberOf) {
@@ -161,6 +174,8 @@ export function toRandomFromType(type, min, max, numberOf, decimals) {
             return toRandomFloats(min, max, numberOf, decimals)
         case 'date':
             return toRandomDates(min, max, numberOf)
+        case 'dateTime':
+            return toRandomDateTimes(min, max, numberOf)
         case 'uuid':
             return toUuids(numberOf)
     }

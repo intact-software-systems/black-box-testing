@@ -1,4 +1,5 @@
-import {compareJson, COMPARISON} from './compareJson.js'
+import {compareJson, COMPARISON, toConfig} from './compareJson.js'
+import {getAllValuePaths} from './utils.js'
 
 const SUCCESS = 'SUCCESS'
 const FAILURE = 'FAILURE'
@@ -181,7 +182,17 @@ function executeInteraction(interactionWithConfig) {
                     return toStatus(config, 'Server with no body in response. Expects a body.', actualJson, response, interaction)
                 }
                 else {
-                    let results = compareJson(interaction.response.body, actualJson, interaction.response?.comparison || COMPARISON.COMPATIBLE)
+                    let results = compareJson(
+                        interaction.response.body,
+                        actualJson,
+                        toConfig(
+                            interaction.response?.comparison || COMPARISON.COMPATIBLE,
+                            interaction.response?.ignoreJsonKeys || [],
+                            interaction.response?.ignoreJsonPaths || [],
+                            interaction.response?.ignoreJsonPaths ? getAllValuePaths(interaction.response.body) : []
+                        )
+                    )
+
                     if (!results.isEqual) {
                         return toStatus(config, 'Expected response not the same as actual response', actualJson, response, interaction, results)
                     }

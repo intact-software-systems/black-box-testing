@@ -1,0 +1,11 @@
+{
+  "name": "@deno/black-box-testing",
+  "description": "Black box testing app",
+  "type": "module",
+  "scripts": {
+    "dev": "deno run --allow-env --allow-read --allow-write --allow-net scenario-black-box.ts -w black-box-tests/ltd -c recipe.json > output.json",
+    "dev-dry": "deno run --allow-env --allow-read --allow-write --allow-net scenario-black-box.ts -w black-box-tests/ltd -c recipe.json -e dry > output.json",
+    "debug": "deno run --allow-env --allow-read --allow-write --allow-net --inspect-brk  scenario-black-box.ts -w black-box-tests/ltd -c recipe.json > output.json",
+    "spotify": "deno run --allow-env --allow-read --allow-write --allow-net --inspect-brk -c ./test-data/spotify.json > output.json"
+  }
+}
