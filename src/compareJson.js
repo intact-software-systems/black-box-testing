@@ -59,7 +59,7 @@ function isValueEqual(expected, actual, compareExact = false) {
             return typeof actual === 'string'
         }
 
-        if (expected.includes(OR) && expected.split(OR).find(e => e === actual)) {
+        if (typeof expected === 'string' && expected.includes(OR) && expected.split(OR).find(e => e === actual)) {
             return true
         }
     }
@@ -114,10 +114,7 @@ function isCompatibleObjects(expected, actual, config, currPath) {
 
     for (const key of Object.keys(expected)) {
 
-        if (config.ignoreJsonKeys.includes(key)) {
-            continue
-        }
-        else if (config.ignoreJsonPaths.includes(expandPath(currPath, key))) {
+        if (config.ignoreJsonKeys.includes(key) || config.ignoreJsonPaths.includes(expandPath(currPath, key))) {
             continue
         }
 

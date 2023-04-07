@@ -1,0 +1,145 @@
+{
+  "isEqual": false,
+  "message": "Json structures not exact equals",
+  "expected": [
+    {
+      "balanceId": {
+        "value": -1843675895719852000
+      },
+      "accountId": {
+        "ledAccountId": {
+          "value": 1
+        },
+        "legAccountId": {
+          "value": 1
+        }
+      },
+      "iban": {
+        "value": "NO3030606105130"
+      },
+      "orgId": {
+        "value": "049890976197705155"
+      },
+      "amount": {
+        "baseAmount": 0,
+        "localizedAmount": 0
+      },
+      "currency": {
+        "baseCurrency": "NOK",
+        "localizedCurrency": "NOK"
+      },
+      "balanceType": "MAIN_ACCOUNT_BALANCE",
+      "status": "ACTIVE",
+      "version": 0,
+      "newBalance": false,
+      "tempTurnOvers": [],
+      "active": true
+    }
+  ],
+  "actual": [
+    {
+      "balanceId": {
+        "value": -857305501721222900
+      },
+      "accountId": {
+        "ledAccountId": {
+          "value": 1
+        },
+        "legAccountId": {
+          "value": 1
+        }
+      },
+      "iban": {
+        "value": "NO3030606105130"
+      },
+      "orgId": {
+        "value": "049890976197705155"
+      },
+      "amount": {
+        "baseAmount": 0,
+        "localizedAmount": 0
+      },
+      "currency": {
+        "baseCurrency": "NOK",
+        "localizedCurrency": "NOK"
+      },
+      "balanceType": "MAIN_ACCOUNT_BALANCE",
+      "status": "ACTIVE",
+      "version": 0,
+      "newBalance": false,
+      "tempTurnOvers": [],
+      "active": true
+    }
+  ],
+  "expectedFound": [],
+  "expectedNotFound": [
+    {
+      "balanceId": {
+        "value": -1843675895719852000
+      },
+      "accountId": {
+        "ledAccountId": {
+          "value": 1
+        },
+        "legAccountId": {
+          "value": 1
+        }
+      },
+      "iban": {
+        "value": "NO3030606105130"
+      },
+      "orgId": {
+        "value": "049890976197705155"
+      },
+      "amount": {
+        "baseAmount": 0,
+        "localizedAmount": 0
+      },
+      "currency": {
+        "baseCurrency": "NOK",
+        "localizedCurrency": "NOK"
+      },
+      "balanceType": "MAIN_ACCOUNT_BALANCE",
+      "status": "ACTIVE",
+      "version": 0,
+      "newBalance": false,
+      "tempTurnOvers": [],
+      "active": true
+    }
+  ],
+  "actualNotFound": [
+    {
+      "balanceId": {
+        "value": -857305501721222900
+      },
+      "accountId": {
+        "ledAccountId": {
+          "value": 1
+        },
+        "legAccountId": {
+          "value": 1
+        }
+      },
+      "iban": {
+        "value": "NO3030606105130"
+      },
+      "orgId": {
+        "value": "049890976197705155"
+      },
+      "amount": {
+        "baseAmount": 0,
+        "localizedAmount": 0
+      },
+      "currency": {
+        "baseCurrency": "NOK",
+        "localizedCurrency": "NOK"
+      },
+      "balanceType": "MAIN_ACCOUNT_BALANCE",
+      "status": "ACTIVE",
+      "version": 0,
+      "newBalance": false,
+      "tempTurnOvers": [],
+      "active": true
+    }
+  ]
+}
