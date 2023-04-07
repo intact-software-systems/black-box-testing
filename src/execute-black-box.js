@@ -1,5 +1,4 @@
 import {compareJson, COMPARISON, toConfig} from './compareJson.js'
-import {getAllValuePaths} from './utils.js'
 
 const SUCCESS = 'SUCCESS'
 const FAILURE = 'FAILURE'
@@ -104,7 +103,7 @@ function toRequest(request) {
                 if (Array.isArray(item)) {
                     item.forEach((el, idx) => getValuePaths(`${currPath}.${idx}`, el, valuePaths))
                 }
-                else if (typeof item == 'object') {
+                else if (item && typeof item == 'object') {
                     Object.entries(item)
                         .forEach(([key, value]) => {
                             getValuePaths(`${currPath}.${key}`, value, valuePaths)
@@ -188,8 +187,7 @@ function executeInteraction(interactionWithConfig) {
                         toConfig(
                             interaction.response?.comparison || COMPARISON.COMPATIBLE,
                             interaction.response?.ignoreJsonKeys || [],
-                            interaction.response?.ignoreJsonPaths || [],
-                            interaction.response?.ignoreJsonPaths ? getAllValuePaths(interaction.response.body) : []
+                            interaction.response?.ignoreJsonPaths || []
                         )
                     )
 

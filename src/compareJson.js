@@ -2,6 +2,13 @@ const ANY = 'any'
 const ANY_INTEGER = 'integer'
 const ANY_FLOAT = 'float'
 const ANY_STRING = 'string'
+const OR = '|'
+
+export function expandPath(path, key) {
+    return !path || path.length <= 0
+        ? key
+        : path + '.' + key
+}
 
 function toNotCompatible(expected, actual, message, details = {}) {
     return {
@@ -51,6 +58,10 @@ function isValueEqual(expected, actual, compareExact = false) {
         if (expected === ANY_STRING) {
             return typeof actual === 'string'
         }
+
+        if (expected.includes(OR) && expected.split(OR).find(e => e === actual)) {
+            return true
+        }
     }
 
     if (Number.isFinite(expected) && !Number.isFinite(actual)) {
@@ -89,7 +100,7 @@ function isIdenticalArrays(a, b) {
     return toCompatible()
 }
 
-function isCompatibleObjects(expected, actual, config) {
+function isCompatibleObjects(expected, actual, config, currPath) {
     if (Array.isArray(expected)) {
         return isCompatibleArrays(expected, actual, config)
     }
@@ -106,6 +117,9 @@ function isCompatibleObjects(expected, actual, config) {
         if (config.ignoreJsonKeys.includes(key)) {
             continue
         }
+        else if (config.ignoreJsonPaths.includes(expandPath(currPath, key))) {
+            continue
+        }
 
         if (expected[key] instanceof Object) {
 
@@ -113,7 +127,7 @@ function isCompatibleObjects(expected, actual, config) {
                 return toNotCompatible(expected, actual, '!(' + actual[key] + ') instanceof Object')
             }
 
-            let compatibleObjects = isCompatibleObjects(expected[key], actual[key], config)
+            let compatibleObjects = isCompatibleObjects(expected[key], actual[key], config, expandPath(currPath, key))
             if (!compatibleObjects.isEqual) {
                 return compatibleObjects
             }
@@ -124,7 +138,7 @@ function isCompatibleObjects(expected, actual, config) {
                 return toNotCompatible(expected, actual, '!Array.isArray(' + actual[key] + ')')
             }
 
-            let compatibleArrays = isCompatibleArrays(expected[key], actual[key], config)
+            let compatibleArrays = isCompatibleArrays(expected[key], actual[key], config, expandPath(currPath, key))
             if (!compatibleArrays.isEqual) {
                 return compatibleArrays
             }
@@ -140,10 +154,11 @@ function isCompatibleObjects(expected, actual, config) {
             }
         }
     }
+
     return toCompatible()
 }
 
-function isCompatibleArrays(expected, actual, config) {
+function isCompatibleArrays(expected, actual, config, currPath) {
     if (!Array.isArray(actual)) {
         return toNotCompatible(expected, actual, 'expected array was object')
     }
@@ -165,13 +180,13 @@ function isCompatibleArrays(expected, actual, config) {
             const actualValue = actualToCompare[j]
 
             if (Array.isArray(expectedValue)) {
-                let compatibilityMessage = isCompatibleArrays(expectedValue, actualValue, config)
+                let compatibilityMessage = isCompatibleArrays(expectedValue, actualValue, config, expandPath(currPath, 'n'))
                 if (!compatibilityMessage.isEqual) {
                     return compatibilityMessage
                 }
             }
             else {
-                let compatibilityMessage = isCompatibleObjects(expectedValue, actualValue, config)
+                let compatibilityMessage = isCompatibleObjects(expectedValue, actualValue, config, expandPath(currPath, 'n'))
                 if (compatibilityMessage.isEqual) {
                     expectedFound.push(expectedValue)
                     actualToCompare[j] = undefined
@@ -216,8 +231,8 @@ function isCompatibleArrays(expected, actual, config) {
 
 export function compareJson(expected, actual, config) {
     return Array.isArray(expected)
-        ? isCompatibleArrays(expected, actual, config)
-        : isCompatibleObjects(expected, actual, config)
+        ? isCompatibleArrays(expected, actual, config, '')
+        : isCompatibleObjects(expected, actual, config, '')
 }
 
 export const COMPARISON = {
@@ -227,16 +242,16 @@ export const COMPARISON = {
     EXACT: 'exact'
 }
 
-export function toConfig(comparison, ignoreJsonKeys, ignoreJsonPaths, allValuePaths) {
+export function toConfig(comparison, ignoreJsonKeys, ignoreJsonPaths) {
     switch (comparison.toLowerCase()) {
         case COMPARISON.COMPATIBLE_STRUCTURE:
-            return toConfigDto(false, false, ignoreJsonKeys, ignoreJsonPaths, allValuePaths)
+            return toConfigDto(false, false, ignoreJsonKeys, ignoreJsonPaths)
         case COMPARISON.COMPATIBLE:
-            return toConfigDto(true, false, ignoreJsonKeys, ignoreJsonPaths, allValuePaths)
+            return toConfigDto(true, false, ignoreJsonKeys, ignoreJsonPaths)
         case COMPARISON.EXACT_STRUCTURE:
-            return toConfigDto(false, true, ignoreJsonKeys, ignoreJsonPaths, allValuePaths)
+            return toConfigDto(false, true, ignoreJsonKeys, ignoreJsonPaths)
         case COMPARISON.EXACT:
-            return toConfigDto(true, true, ignoreJsonKeys, ignoreJsonPaths, allValuePaths)
+            return toConfigDto(true, true, ignoreJsonKeys, ignoreJsonPaths)
         default:
             throw {
                 error: 'Comparison unsupported: ' + comparison.toLowerCase(),
@@ -245,12 +260,11 @@ export function toConfig(comparison, ignoreJsonKeys, ignoreJsonPaths, allValuePa
     }
 }
 
-function toConfigDto(compareValues, compareExact, ignoreJsonKeys, ignoreJsonPaths, allValuePaths) {
+function toConfigDto(compareValues, compareExact, ignoreJsonKeys, ignoreJsonPaths) {
     return {
         compareValues,
         compareExact,
         ignoreJsonKeys,
-        ignoreJsonPaths,
-        allValuePaths
+        ignoreJsonPaths
     }
 }
