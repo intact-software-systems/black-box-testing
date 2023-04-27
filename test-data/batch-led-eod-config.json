@@ -16,6 +16,20 @@
             "{bankOrgID}"
           ]
         }
+      },
+      "response": {
+        "left": {
+          "body": {
+          },
+          "statusCode": 200,
+          "next": "endOfBatch"
+        },
+        "right": {
+          "body": {
+          },
+          "statusCode": 201,
+          "next": "progressLedEod"
+        }
       }
     },
     "progressLedEod": {

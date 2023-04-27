@@ -3,6 +3,7 @@ const ANY_INTEGER = 'integer'
 const ANY_FLOAT = 'float'
 const ANY_STRING = 'string'
 const OR = '|'
+const NOT = '!'
 
 export function expandPath(path, key) {
     return !path || path.length <= 0
@@ -59,8 +60,12 @@ function isValueEqual(expected, actual, compareExact = false) {
             return typeof actual === 'string'
         }
 
-        if (typeof expected === 'string' && expected.includes(OR) && expected.split(OR).find(e => e === actual)) {
-            return true
+        if (typeof expected === 'string' && expected.includes(OR)) {
+            return expected.split(OR).find(e => e === actual)
+        }
+
+        if (typeof expected === 'string' && expected.startsWith(NOT)) {
+            return expected.replace(NOT, '') !== actual
         }
     }
 

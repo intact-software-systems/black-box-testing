@@ -1,6 +1,7 @@
-import * as sync from './src/execute-black-box.js'
-import * as scenarioAlgorithms from './src/scenario-algorithm.js'
 import utils from './src/utils.js'
+import {BlackBox} from './src/black-box.js'
+import {ScenarioAlgorithm} from "./src/scenario-algorithm.js";
+import {ScenarioCommand} from "./src/scenario-command.js";
 
 import {Command} from "https://deno.land/x/cmd@v1.2.0/commander/index.ts"
 
@@ -35,17 +36,17 @@ input.replace = {
     ...utils.inputReplacesToJson(program.opts().replace)
 }
 
-const scenarioJson = scenarioAlgorithms.createScenarios(input)
+const scenarioJson = ScenarioCommand.create(input)
 
 if (program.opts().execution && program.opts().execution.toLowerCase().includes('dry')) {
     console.log(JSON.stringify(scenarioJson, null, 2))
 }
 else {
-    sync.executeBlackBox(scenarioJson.flatMap(a => a), 0)
-        .then(data => {
+    BlackBox.execute(scenarioJson.flatMap(a => a), 0, new Map())
+        .then(data =>
             console.log(JSON.stringify(data, null, 2))
-        })
-        .catch(e => {
+        )
+        .catch(e =>
             console.log(e)
-        })
+        )
 }
