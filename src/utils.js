@@ -187,7 +187,13 @@ export default {
     inputReplacesToJson: csv => inputReplacesToJson(csv),
 
     resolvePathData: (path, obj) => {
-        return path.split('.')
+        let resolvedData = path.split('.')
             .reduce((prev, curr) => prev ? prev[curr] : null, obj || self)
+
+        if(resolvedData === undefined) {
+            throw 'Cannot resolve ' + path + ' among available: [' + Object.keys(obj) + ']'
+        }
+
+        return resolvedData
     }
 }
