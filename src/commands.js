@@ -36,4 +36,31 @@ export class Commands {
         }
         return data
     }
+
+    static async runSequentialBasedOnEither(configs, interactionKeys) {
+        let currentKey = interactionKeys[0]
+
+        const data = []
+
+        while (configs.length > 0) {
+            const config = configs[currentKey]
+            if(!config) {
+                console.log('key not found ' + currentKey)
+                break
+            }
+
+            try {
+                const result = await Command.runCommand(config)
+
+                data.push(result)
+
+                currentKey = config.either.right
+            } catch (e) {
+                currentKey = config.either.left
+            }
+        }
+
+        return data
+    }
+
 }

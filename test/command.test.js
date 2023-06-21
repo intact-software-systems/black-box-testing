@@ -1,4 +1,4 @@
-import {Command} from '../src/commands/command.js'
+import {Command} from '../src/command.js'
 
 const createTestConfig = () => Command.toCommandConfig(
     () =>

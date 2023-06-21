@@ -75,7 +75,7 @@ export class ScenarioCommand {
                 return {
                     [commandName]: {
                         command: command,
-                        interactions: interactions
+                        interactions: interactions.reduce((a, b) => ({...a, ...b}))
                     }
                 }
             })

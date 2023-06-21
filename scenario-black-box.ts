@@ -1,7 +1,6 @@
 import utils from './src/utils.js'
-import {BlackBox} from './src/black-box.js'
-import {ScenarioAlgorithm} from "./src/scenario-algorithm.js";
-import {ScenarioCommand} from "./src/scenario-command.js";
+import {ScenarioCommand} from "./src/scenario-command.js"
+import {BlackBoxCommand} from "./src/black-box-command.js"
 
 import {Command} from "https://deno.land/x/cmd@v1.2.0/commander/index.ts"
 
@@ -42,7 +41,7 @@ if (program.opts().execution && program.opts().execution.toLowerCase().includes(
     console.log(JSON.stringify(scenarioJson, null, 2))
 }
 else {
-    BlackBox.execute(scenarioJson.flatMap(a => a), 0, new Map())
+    BlackBoxCommand.execute(scenarioJson.flatMap(a => a), 0, new Map())
         .then(data =>
             console.log(JSON.stringify(data, null, 2))
         )
