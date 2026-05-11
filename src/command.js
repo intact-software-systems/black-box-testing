@@ -1,3 +1,5 @@
+import {FAILURE} from "./black-box-utils.js";
+
 export class Command {
 
     static Status = {
@@ -75,15 +77,22 @@ export class Command {
                     status.status = Command.Status.STARTED
 
                     const data = await command()
-                    isSuccess = true
 
-                    status.successes = status.successes + 1
-                    callbacks.onNext(data)
+                    isSuccess = data.status !== FAILURE;
+
+                    if(isSuccess) {
+                        status.successes = status.successes + 1
+                        callbacks.onNext(data)
+                    }
+                    else {
+                        status.failures = status.failures + 1
+                        callbacks.onError(e)
+                    }
+
                 } catch (e) {
                     status.failures = status.failures + 1
                     callbacks.onError(e)
                 }
-
 
                 if (
                     policy.minSuccesses > status.successes &&

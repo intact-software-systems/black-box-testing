@@ -1,0 +1,34 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "replace": {
+    "url": "https://pokeapi.co/api/v2/pokemon/ditto"
+  },
+  "commands": {
+    "pokemon": {
+      "interactions": {
+        "pokemon": {
+          "request": {
+            "path": "https://pokeapi.co/api/v2/pokemon/ditto"
+          },
+          "response": {
+            "right": {
+              "next": "anotherPokemon"
+            }
+          }
+        },
+        "anotherPokemon": {
+          "request": {
+            "path": "https://pokeapi.co/api/v2/pokemon/ditto"
+          },
+          "response": {
+            "right": {
+              "next": "anotherPokemon"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,18 +4,13 @@ import {FAILURE, fetchDataBasic, toInteractionConfig, toInteractionName, toJson,
 import {compareJson, COMPARISON, toConfig} from './compareJson.js'
 
 export class BlackBoxCommand {
-    static execute(commands, index, output) {
+    static async execute(commands, index, output) {
 
         for (let i = 0; i < commands.length; i++) {
             const commandGroups = commands[i]
 
             Object.entries(commandGroups)
-                .forEach(([key, value]) => {
-                    console.log(key)
-                    console.log(value)
-
-                    const commandGroupName = key
-                    const commandGroup = value
+                .forEach(([commandGroupName, commandGroup]) => {
 
                     const executionStyle = commandGroup.command.execution // sequential | parallel
 
@@ -39,12 +34,18 @@ export class BlackBoxCommand {
                                     () => console.log('Task interrupted')
                                 ),
                                 Command.toPolicy(
-                                    4,
-                                    20,
+                                    1,
+                                    2,
                                     2000,
                                     2000
                                 )
                             )
+
+                            config = {
+                                ...config,
+                                ...parsedInteraction?.HTTP,
+                            }
+
                             return {
                                 [key]: config
                             }
@@ -56,6 +57,7 @@ export class BlackBoxCommand {
                         .catch(e => console.error(e))
                 })
 
+            return {}
         }
 
     }

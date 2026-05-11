@@ -151,7 +151,7 @@ export async function loadJsonFile(fileName) {
     return await import (
         fileName,
         {
-            assert: {type: 'json'}
+            with: {type: 'json'}
         }
         )
         .then(a => a.default)

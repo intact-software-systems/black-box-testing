@@ -42,7 +42,7 @@ export class Commands {
 
         const data = []
 
-        while (configs.length > 0) {
+        while (currentKey) {
             const config = configs[currentKey]
             if(!config) {
                 console.log('key not found ' + currentKey)
@@ -54,9 +54,9 @@ export class Commands {
 
                 data.push(result)
 
-                currentKey = config.either.right
+                currentKey = config.response.right
             } catch (e) {
-                currentKey = config.either.left
+                currentKey = config.response.left
             }
         }
 
